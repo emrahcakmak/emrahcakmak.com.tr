@@ -1,8 +1,8 @@
 backend:
   name: git-gateway
-  branch: main # Repo'nuzun ana dalı main ise böyle kalsın
+  branch: main
 
-media_folder: "images" 
+media_folder: "images"
 public_folder: "/images"
 
 collections:
