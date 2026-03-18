@@ -3,14 +3,13 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Emrah Çakmak SMMM - Yönetim Paneli</title>
+    <title>Yönetim Paneli | Emrah Çakmak</title>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
   <body>
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 
     <script>
-      // Giriş yapıldıktan sonra sayfayı yenile ki panel yüklensin
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on("init", user => {
           if (!user) {
@@ -18,10 +17,6 @@
               document.location.href = "/admin/";
             });
           }
-        });
-        // Çıkış yapınca ana sayfaya at
-        window.netlifyIdentity.on("logout", () => {
-          document.location.href = "/";
         });
       }
     </script>
