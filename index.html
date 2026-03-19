@@ -699,14 +699,15 @@
                 const title = content.title || "Başlık Yok";
                 const summary = content.summary || (content.body ? content.body.substring(0, 120) + "..." : "");
                 
-                // RESİMLER İÇİN AKILLI YOL BULUCU
+                // BURAYA SİHİRLİ DOKUNUŞ EKLENDİ (blog-posts -> blog-post otomatik değişimi)
                 let image = a.image;
                 if (!image) {
-                    image = "https://emrahcakmak.com.tr/logo.png"; // Resim hiç yoksa logo göster
-                } else if (!image.startsWith('http')) {
-                    // Eğer resim yolu "blog-posts/..." gibiyse başına "/" ekle ki kök dizinden bulsun
-                    // CMS'ten yeni yüklenen "/images/..." yolları için zaten "/" var, onlara dokunmaz.
-                    if (!image.startsWith('/')) {
+                    image = "https://emrahcakmak.com.tr/logo.png";
+                } else {
+                    // Veritabanındaki "blog-posts/" yolunu sunucudaki "blog-post/" yoluna çevirir
+                    image = image.replace('blog-posts/', 'blog-post/');
+                    
+                    if (!image.startsWith('http') && !image.startsWith('/')) {
                         image = '/' + image;
                     }
                 }
