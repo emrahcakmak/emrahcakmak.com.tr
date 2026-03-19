@@ -5,388 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="favicon.png">
     <title>Yükleniyor... | Blog | Emrah Çakmak SMMM</title>
-    <meta name="description" content="Emrah Çakmak SMMM Blog Detay Sayfası - Güncel mali bilgiler, mevzuat, vergi avantajları ve iş dünyası haberleri.">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Roboto:wght@300;400;500;700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
     
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
     <style>
-        /* --- ORTAK TEMEL STİLLER --- */
-        :root {
-            --primary-dark: #0f172a;
-            --primary-blue: #1e293b;
-            --accent-gold: #c5a059;
-            --text-gray: #475569;
-            --light-bg: #f8fafc;
-            --white: #ffffff;
-            --whatsapp-green: #25D366;
-            --linkedin-blue: #0077b5;
-            --font-heading: 'Playfair Display', serif;
-            --font-body: 'Roboto', 'Tajawal', sans-serif;
-            --acc-primary: #3b8e98;
-        }
-
+        :root { --primary-dark: #0f172a; --primary-blue: #1e293b; --accent-gold: #c5a059; --text-gray: #475569; --light-bg: #f8fafc; --white: #ffffff; }
         * { box-sizing: border-box; }
-
-        body {
-            font-family: var(--font-body);
-            margin: 0; padding: 0;
-            color: var(--primary-dark);
-            background-color: var(--white);
-            line-height: 1.7;
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-            font-size: 16px;
-            transition: filter 0.3s ease;
-        }
-
-        :focus-visible { outline: 3px solid var(--accent-gold); outline-offset: 3px; border-radius: 4px; }
-        a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
-        ul { list-style: none; padding: 0; margin: 0; }
-        img { max-width: 100%; height: auto; display: block; transition: transform 0.5s ease; }
-        h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 700; margin-top: 0; letter-spacing: -0.5px; }
-
-        /* HEADER & NAV */
-        .top-bar { background: var(--primary-dark); color: #94a3b8; font-size: 0.85rem; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        body { font-family: 'Roboto', sans-serif; margin: 0; padding: 0; color: var(--primary-dark); background-color: var(--white); line-height: 1.7; font-size: 16px; }
+        a { text-decoration: none; color: inherit; }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 700; margin-top: 0; }
+        
+        .top-bar { background: var(--primary-dark); color: #94a3b8; padding: 10px 0; }
         .container { max-width: 1200px; margin: auto; padding: 0 20px; }
-        .language-switcher button { background: none; border: none; cursor: pointer; padding: 5px; margin-left: 5px; transition: transform 0.3s; }
-        .language-switcher button:hover { transform: scale(1.2); }
-        .language-switcher .flag-icon { font-size: 1.3rem; border-radius: 2px; box-shadow: 0 2px 5px rgba(0,0,0,0.3); }
-
-        header { background: rgba(255,255,255,0.98); box-shadow: 0 4px 25px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; transition: all 0.3s; }
+        
+        header { background: #fff; box-shadow: 0 4px 25px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
         .navbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; }
-        .header-left-group { display: flex; align-items: center; gap: 25px; }
-        .logo a { display: block; }
-        .logo img { height: 65px; transition: transform 0.3s; }
-        .logo a:hover img { transform: scale(1.05); } 
-        .header-cert-logos { display: flex; gap: 10px; }
-        .header-cert-logos div { background: #fff; padding: 4px; border-radius: 3px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        .header-cert-logos img { height: 45px; width: auto; display: block; }
-
+        .logo img { height: 65px; }
         .nav-links { display: flex; gap: 30px; align-items: center; }
-        .nav-links a { font-weight: 500; color: var(--primary-blue); text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; position: relative; padding-bottom: 5px; }
-        .nav-links a::after { content: ''; display: block; width: 0; height: 2px; background: var(--accent-gold); transition: width 0.3s; margin-top: 3px; position: absolute; bottom: 0; left: 0; }
-        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
-        .nav-links a:hover, .nav-links a.active { color: var(--accent-gold); }
+        .nav-links a { font-weight: 500; color: var(--primary-blue); text-transform: uppercase; font-size: 0.85rem; }
 
-        .btn-quote { 
-            background: linear-gradient(135deg, var(--primary-dark) 0%, #2c3e50 100%);
-            color: var(--white) !important; 
-            padding: 12px 30px; border-radius: 50px; font-size: 0.9rem; letter-spacing: 0.5px; transition: all 0.3s ease;
-            display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            white-space: nowrap;
-        }
-        .btn-quote:hover { background: var(--accent-gold); color: #000 !important; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(197, 160, 89, 0.4); }
-
-        .hamburger { display: none; font-size: 1.5rem; cursor: pointer; color: var(--primary-dark); border: none; background: transparent; }
-        .mobile-close { display: none; position: absolute; top: 20px; right: 20px; font-size: 2rem; cursor: pointer; color: var(--primary-dark); z-index: 2001; border: none; background: transparent; }
-
-        /* --- BLOG DETAY STİLLERİ --- */
         .article-header { background: var(--light-bg); padding: 80px 0; text-align: center; border-bottom: 1px solid #e2e8f0; }
-        .breadcrumb { font-size: 0.85rem; color: var(--text-gray); margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; font-weight: 500; }
-        .breadcrumb a { color: var(--accent-gold); text-decoration: none; margin: 0 5px; }
-        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb { font-size: 0.85rem; color: var(--text-gray); margin-bottom: 25px; text-transform: uppercase; font-weight: 500; }
+        .breadcrumb a { color: var(--accent-gold); margin: 0 5px; }
         .article-title { font-size: 3rem; margin: 0 auto 25px; max-width: 900px; color: var(--primary-dark); line-height: 1.2; }
-        #article-meta { font-size: 0.95rem; font-weight: 500; }
         
         .main-layout { display: grid; grid-template-columns: 2.5fr 1fr; gap: 60px; padding: 80px 20px; }
-        
         .content-area img.main-img { width: 100%; border-radius: 12px; margin-bottom: 40px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
         
         #article-body { font-size: 1.15rem; color: #334155; line-height: 1.8; }
         #article-body h2 { border-left: 5px solid var(--accent-gold); padding-left: 20px; margin: 50px 0 25px; font-size: 2rem; color: var(--primary-blue); }
-        #article-body h3 { margin: 40px 0 20px; font-size: 1.5rem; color: var(--primary-dark); }
-        #article-body p { margin-bottom: 25px; }
-        #article-body ul, #article-body ol { margin-bottom: 25px; padding-left: 20px; }
-        #article-body li { margin-bottom: 10px; }
-        #article-body blockquote { font-style: italic; font-size: 1.3rem; border-left: 4px solid var(--primary-dark); padding: 20px; background: #f8fafc; margin: 30px 0; color: #1e293b; border-radius: 0 8px 8px 0; }
+        #article-body img { max-width: 100%; height: auto; }
 
-        /* --- SİDEBAR (SAĞ SÜTUN) STİLLERİ --- */
-        .sidebar { position: relative; }
+        .sidebar-box { background: #fff; border: 1px solid #e2e8f0; padding: 40px 30px; border-radius: 12px; margin-bottom: 30px; text-align: center; }
+        .author-img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin: 0 auto 20px; }
         
-        /* Yazar Kutusu */
-        .sidebar-box { background: #fff; border: 1px solid #e2e8f0; padding: 40px 30px; border-radius: 12px; margin-bottom: 30px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
-        .author-img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin: 0 auto 20px; border: 3px solid var(--light-bg); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .sidebar-box h4 { font-size: 1.5rem; margin-bottom: 5px; color: var(--primary-dark); }
-        .sidebar-title-job { font-size: 0.9rem; color: var(--accent-gold); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; display: block; }
-        .sidebar-desc { font-size: 0.95rem; color: var(--text-gray); margin-bottom: 25px; line-height: 1.6; }
-        .btn-contact { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: var(--primary-dark); color: #fff; padding: 15px 25px; border-radius: 50px; font-weight: bold; width: 100%; transition: 0.3s; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; }
-        .btn-contact:hover { background: var(--accent-gold); color: #000; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(197, 160, 89, 0.3); }
-
-        /* Önerilen Makaleler Kutusu */
         .widget-recent-posts { text-align: left; padding: 30px 25px; position: sticky; top: 120px; }
-        .widget-recent-posts h4 { font-size: 1.25rem; margin-bottom: 20px; color: var(--primary-dark); border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; font-family: var(--font-heading); }
-        
-        .recent-post-item { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; text-decoration: none; color: inherit; transition: all 0.3s; border-radius: 8px; padding: 5px; }
-        .recent-post-item:last-child { margin-bottom: 0; }
-        .recent-post-item:hover { background: #f8fafc; transform: translateX(5px); }
-        .recent-post-img { width: 75px; height: 75px; border-radius: 8px; object-fit: cover; flex-shrink: 0; border: 1px solid #eee; }
-        .recent-post-info h5 { font-size: 0.95rem; margin: 0 0 5px; color: var(--primary-blue); line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; font-family: var(--font-body); font-weight: 600; }
-        .recent-post-info span { font-size: 0.8rem; color: var(--text-gray); display: block; }
-        .recent-post-info span i { color: var(--accent-gold); margin-right: 4px; }
+        .recent-post-item { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; text-decoration: none; color: inherit; transition: all 0.3s; }
+        .recent-post-img { width: 75px; height: 75px; border-radius: 8px; object-fit: cover; }
+        .recent-post-info h5 { font-size: 0.95rem; margin: 0 0 5px; color: var(--primary-blue); }
+        .recent-post-info span { font-size: 0.8rem; color: var(--text-gray); }
 
-        /* --- YÜZEN PAYLAŞIM BARI --- */
-        .share-widget-container { 
-            position: fixed; top: 50%; left: 15px; transform: translateY(-50%); z-index: 1000; display: flex; flex-direction: row; align-items: center; gap: 10px; 
-        }
-        .f-share-toggle { 
-            width: 50px; height: 50px; border-radius: 50%; background: var(--primary-dark); color: #fff; border: 3px solid #fff; cursor: pointer; font-size: 1.3rem; box-shadow: 0 4px 15px rgba(0,0,0,0.15); display: flex; align-items: center; justify-content: center; transition: all 0.4s ease; z-index: 2; 
-        }
-        .f-share-toggle i { transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .f-share-toggle:hover { background: var(--accent-gold); }
-        .share-widget-container.open .f-share-toggle { background: var(--primary-dark); }
-        .share-widget-container.open .f-share-toggle i { transform: rotate(180deg); }
-        .floating-share-bar { 
-            display: flex; flex-direction: row; gap: 10px; background: rgba(255, 255, 255, 0.95); padding: 8px 15px; border-radius: 50px; box-shadow: 0 5px 20px rgba(15, 23, 42, 0.15); border: 1px solid #e2e8f0; align-items: center; backdrop-filter: blur(10px); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); opacity: 0; visibility: hidden; transform: translateX(-30px); transform-origin: left center; z-index: 1;
-        }
-        .floating-share-bar.show { opacity: 1; visibility: visible; transform: translateX(0); }
-        .share-bar-title { display: none; }
-        .f-share-btn { width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; border: none; cursor: pointer; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); font-size: 1.2rem; }
-        .f-share-btn.li { background: #0077b5; } .f-share-btn.wa { background: #25d366; } .f-share-btn.cp { background: var(--primary-dark); }
-        .f-share-btn:hover { transform: scale(1.15) translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); color: #fff; }
-
-        /* FOOTER & MODALS */
-        footer { background: #0b1120; color: #94a3b8; padding: 80px 0 30px; font-size: 0.9rem; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; margin-bottom: 50px; }
-        .footer-col h4 { color: #fff; margin-bottom: 25px; font-size: 1.2rem; font-family: var(--font-heading); }
-        .footer-col ul li { margin-bottom: 12px; }
-        .footer-col a:hover { color: var(--accent-gold); padding-left: 5px; }
-        .footer-logo-container { background-color: #ffffff; padding: 10px 15px; border-radius: 5px; display: inline-block; margin-bottom: 20px; transition: transform 0.3s; }
-        .footer-logo-img { height: 50px; display: block; }
-        .social-icons a { display: inline-flex; width: 40px; height: 40px; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); color: #fff; margin-right: 10px; border-radius: 50%; transition: all 0.3s; font-size: 1.1rem; }
-        .social-icons a:hover { background: var(--accent-gold); color: #000; transform: translateY(-5px) rotate(360deg); }
-        .bottom-bar { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; }
-
-        /* Erişilebilirlik ve Floating Butonlar */
-        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: var(--whatsapp-green); color: #fff; width: 60px; height: 60px; border-radius: 50%; text-align: center; line-height: 60px; font-size: 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); z-index: 2000; transition: 0.3s; display: flex; align-items: center; justify-content: center; }
-        .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 15px 30px rgba(0,0,0,0.3); }
-        .linkedin-float { position: fixed; bottom: 100px; right: 30px; background: var(--linkedin-blue); color: #fff; width: 60px; height: 60px; border-radius: 50%; text-align: center; line-height: 60px; font-size: 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); z-index: 2000; transition: 0.3s; display: flex; align-items: center; justify-content: center; }
-        .linkedin-float:hover { transform: scale(1.1); background: #005582; }
-
-        /* ==========================================================
-           YENİ & PROFESYONEL ERİŞİLEBİLİRLİK (A11Y) PANELİ STİLLERİ 
-           ========================================================== */
-        
-        .a11y-widget-btn {
-            position: fixed; bottom: 30px; left: 30px; width: 55px; height: 55px; border-radius: 50%; background: var(--acc-primary); color: #fff; border: 3px solid #fff; font-size: 26px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center; z-index: 9998; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        .a11y-widget-btn:hover { transform: scale(1.1); background: var(--primary-dark); }
-        .a11y-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 9999; opacity: 0; visibility: hidden; transition: 0.3s; }
-        .a11y-overlay.active { opacity: 1; visibility: visible; }
-
-        .a11y-panel { position: fixed; top: 0; left: -350px; width: 340px; height: 100vh; background: #fff; z-index: 10000; box-shadow: 5px 0 25px rgba(0,0,0,0.2); transition: left 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); display: flex; flex-direction: column; font-family: 'Roboto', sans-serif; }
-        .a11y-panel.open { left: 0; }
-
-        .a11y-header { background: var(--acc-primary); color: white; padding: 20px; display: flex; justify-content: space-between; align-items: center; }
-        .a11y-header h3 { margin: 0; font-size: 1.1rem; display: flex; align-items: center; gap: 10px; font-family: inherit; }
-        .a11y-close { background: rgba(255,255,255,0.2); border: none; color: white; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
-        .a11y-close:hover { background: rgba(255,255,255,0.4); transform: rotate(90deg); }
-
-        .a11y-content { padding: 20px; overflow-y: auto; flex-grow: 1; }
-        .a11y-section { margin-bottom: 25px; }
-        .a11y-section-title { font-size: 0.75rem; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; font-weight: 700; }
-
-        .a11y-size-control { display: flex; align-items: center; justify-content: space-between; background: #f1f5f9; border-radius: 50px; padding: 5px; border: 1px solid #e2e8f0; }
-        .a11y-size-btn { background: #fff; border: 1px solid #cbd5e1; width: 40px; height: 40px; border-radius: 50%; font-size: 18px; font-weight: bold; color: var(--primary-dark); cursor: pointer; transition: 0.2s; }
-        .a11y-size-btn:hover { background: var(--acc-primary); color: #fff; border-color: var(--acc-primary); }
-        .a11y-size-label { font-weight: 700; font-size: 1rem; color: var(--primary-dark); }
-
-        .a11y-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-        .a11y-btn-item { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 5px; display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; transition: 0.2s; color: var(--text-gray); }
-        .a11y-btn-item i { font-size: 1.3rem; color: var(--acc-primary); }
-        .a11y-btn-item span { font-size: 0.75rem; text-align: center; font-weight: 500; line-height: 1.2; }
-        .a11y-btn-item:hover { background: #f8fafc; border-color: #cbd5e1; }
-        .a11y-btn-item.active { background: #eff6ff; border-color: var(--acc-primary); color: var(--acc-primary); box-shadow: inset 0 0 0 1px var(--acc-primary); }
-
-        .a11y-footer { padding: 15px 20px; background: #f8fafc; border-top: 1px solid #e2e8f0; }
-        .a11y-reset-btn { width: 100%; background: #dc2626; color: white; border: none; padding: 12px; border-radius: 8px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: 0.3s; }
-        .a11y-reset-btn:hover { background: #b91c1c; }
-
-        body.a11y-grayscale { filter: grayscale(100%) !important; }
-        body.a11y-high-contrast { background-color: #000 !important; color: #fff !important; }
-        body.a11y-high-contrast * { background-color: #000 !important; color: #fff !important; border-color: #444 !important; }
-        body.a11y-light-bg { background-color: #fff9e6 !important; color: #333 !important; }
-        body.a11y-light-bg * { background-color: #fff9e6 !important; color: #333 !important; }
-        body.a11y-highlight-links a { text-decoration: underline !important; text-decoration-thickness: 3px !important; color: #000 !important; background: #ffeb3b !important; padding: 2px 4px !important; border-radius: 3px !important; }
-        body.a11y-dyslexic, body.a11y-dyslexic * { font-family: 'Comic Sans MS', 'Arial', sans-serif !important; }
-        body.a11y-text-spaced, body.a11y-text-spaced * { letter-spacing: 0.15em !important; word-spacing: 0.3em !important; line-height: 2 !important; }
-        body.a11y-hide-images img, body.a11y-hide-images video, body.a11y-hide-images .main-img, body.a11y-hide-images .recent-post-img { opacity: 0 !important; visibility: hidden !important; }
-        
-        .a11y-reading-mask { display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 99999; }
-        body.a11y-mask-active .a11y-reading-mask { display: block; }
-        .a11y-reading-hole { position: absolute; left: 0; width: 100%; height: 120px; background: transparent; box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.7); transform: translateY(-50%); border-top: 2px solid var(--accent-gold); border-bottom: 2px solid var(--accent-gold); }
-        
-        .a11y-reading-guide { display: none; position: fixed; left: 0; width: 100vw; height: 4px; background: red; pointer-events: none; z-index: 99999; box-shadow: 0 2px 5px rgba(0,0,0,0.5); }
-        body.a11y-guide-active .a11y-reading-guide { display: block; }
-
-        /* Modals */
-        .cookie-modal, .modal { display: none; position: fixed; z-index: 10001; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); backdrop-filter: blur(5px); justify-content: center; align-items: center; overflow: hidden; }
-        .cookie-modal-content, .modal-content { background-color: #fff; padding: 40px; width: 90%; max-width: 700px; border-radius: 8px; position: relative; box-shadow: 0 10px 40px rgba(0,0,0,0.5); max-height: 90vh; overflow-y: auto; }
-        .modal-close { color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; position: absolute; right: 20px; top: 10px; border: none; background: none; transition: 0.3s; z-index: 10; }
-        .modal-close:hover { color: var(--accent-gold); transform: rotate(90deg); }
+        footer { background: #0b1120; color: #94a3b8; padding: 80px 0 30px; text-align: center; }
 
         @media (max-width: 992px) {
-            .header-cert-logos { display: none; }
-            .header-left-group { gap: 0; }
-            .footer-grid { grid-template-columns: 1fr; text-align: center; }
-            .hamburger { display: block; }
-            .nav-links { position: fixed; top: 0; right: -100%; width: 80%; height: 100vh; background: var(--white); flex-direction: column; padding: 80px 40px; box-shadow: -10px 0 30px rgba(0,0,0,0.1); transition: 0.4s; align-items: flex-start; z-index: 2000; visibility: hidden; }
-            .nav-links.active { right: 0; visibility: visible; }
-            .nav-links a { font-size: 1.1rem; width: 100%; border-bottom: 1px solid #eee; padding: 15px 0; }
-            .btn-quote { display: flex; width: 100%; text-align: center; margin-top: 20px; justify-content: center; }
-            .main-layout { grid-template-columns: 1fr; padding: 60px 20px; } 
-            .article-title { font-size: 2.2rem; }
-            
-            .sidebar-box, .widget-recent-posts { position: static; }
-            
-            .share-widget-container { left: 0; }
-            .f-share-toggle { width: 35px; height: 50px; border-radius: 0 25px 25px 0; border-left: none; opacity: 0.6; }
-            .share-widget-container.open .f-share-toggle { opacity: 1; width: 45px; height: 45px; border-radius: 50%; border-left: 3px solid #fff; transform: translateX(5px); }
-            .floating-share-bar { padding: 6px 10px; }
-            .f-share-btn { width: 38px; height: 38px; font-size: 1rem; }
+            .main-layout { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <a href="#main-content" class="skip-link" id="skip-link-text" style="position:absolute; left:-9999px;">Ana İçeriğe Atla</a>
-
-    <button class="a11y-widget-btn" id="a11y-open-btn" aria-label="Erişilebilirlik Menüsünü Aç">
-        <i class="fas fa-universal-access"></i>
-    </button>
-
-    <div class="a11y-overlay" id="a11y-overlay"></div>
-
-    <div class="a11y-panel" id="a11y-panel" role="dialog" aria-label="Erişilebilirlik Seçenekleri">
-        <div class="a11y-header">
-            <h3><i class="fas fa-universal-access"></i> Erişilebilirlik</h3>
-            <button class="a11y-close" id="a11y-close-btn" aria-label="Kapat"><i class="fas fa-times"></i></button>
-        </div>
-
-        <div class="a11y-content">
-            <div class="a11y-section">
-                <div class="a11y-section-title">Yazı Boyutu</div>
-                <div class="a11y-size-control">
-                    <button class="a11y-size-btn" onclick="a11yChangeFontSize(-10)">-</button>
-                    <span class="a11y-size-label" id="a11y-size-indicator">100%</span>
-                    <button class="a11y-size-btn" onclick="a11yChangeFontSize(10)">+</button>
-                </div>
-            </div>
-
-            <div class="a11y-section">
-                <div class="a11y-section-title">Sayfayı Sesli Oku</div>
-                <div class="a11y-grid" style="grid-template-columns: 1fr 1fr;">
-                    <button class="a11y-btn-item" id="btn-tts-play" onclick="a11yReadPage()">
-                        <i class="fas fa-play"></i>
-                        <span>Oku</span>
-                    </button>
-                    <button class="a11y-btn-item" id="btn-tts-stop" onclick="a11yStopReading()">
-                        <i class="fas fa-stop"></i>
-                        <span>Durdur</span>
-                    </button>
-                </div>
-            </div>
-
-            <div class="a11y-section">
-                <div class="a11y-section-title">Okuma Yardımı</div>
-                <div class="a11y-grid">
-                    <button class="a11y-btn-item" id="btn-a11y-guide" onclick="a11yToggleClass('a11y-guide-active', 'btn-a11y-guide')">
-                        <i class="fas fa-minus"></i>
-                        <span>Rehber Çizgi</span>
-                    </button>
-                    <button class="a11y-btn-item" id="btn-a11y-mask" onclick="a11yToggleClass('a11y-mask-active', 'btn-a11y-mask')">
-                        <i class="fas fa-ruler-horizontal"></i>
-                        <span>Okuma Maskesi</span>
-                    </button>
-                    <button class="a11y-btn-item" id="btn-a11y-hideimg" onclick="a11yToggleClass('a11y-hide-images', 'btn-a11y-hideimg')">
-                        <i class="fas fa-image"></i>
-                        <span>Görsel Gizle</span>
-                    </button>
-                </div>
-            </div>
-
-            <div class="a11y-section">
-                <div class="a11y-section-title">Yazı Tipi ve Metin</div>
-                <div class="a11y-grid">
-                    <button class="a11y-btn-item" id="btn-a11y-dyslexic" onclick="a11yToggleClass('a11y-dyslexic', 'btn-a11y-dyslexic')">
-                        <i class="fas fa-font"></i>
-                        <span>Disleksi Dostu</span>
-                    </button>
-                    <button class="a11y-btn-item" id="btn-a11y-spaced" onclick="a11yToggleClass('a11y-text-spaced', 'btn-a11y-spaced')">
-                        <i class="fas fa-text-width"></i>
-                        <span>Aralık Aç</span>
-                    </button>
-                    <button class="a11y-btn-item" id="btn-a11y-links" onclick="a11yToggleClass('a11y-highlight-links', 'btn-a11y-links')">
-                        <i class="fas fa-link"></i>
-                        <span>Link Vurgusu</span>
-                    </button>
-                </div>
-            </div>
-
-            <div class="a11y-section">
-                <div class="a11y-section-title">Renk ve Görsel Ayarlar</div>
-                <div class="a11y-grid">
-                    <button class="a11y-btn-item" id="btn-a11y-contrast" onclick="a11yToggleClass('a11y-high-contrast', 'btn-a11y-contrast', ['a11y-light-bg'])">
-                        <i class="fas fa-moon"></i>
-                        <span>Karanlık Mod</span>
-                    </button>
-                    <button class="a11y-btn-item" id="btn-a11y-lightbg" onclick="a11yToggleClass('a11y-light-bg', 'btn-a11y-lightbg', ['a11y-high-contrast'])">
-                        <i class="fas fa-sun"></i>
-                        <span>Açık Kontrast</span>
-                    </button>
-                    <button class="a11y-btn-item" id="btn-a11y-grayscale" onclick="a11yToggleClass('a11y-grayscale', 'btn-a11y-grayscale')">
-                        <i class="fas fa-tint-slash"></i>
-                        <span>Solgun (Gri)</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <div class="a11y-footer">
-            <button class="a11y-reset-btn" onclick="a11yResetAll()">
-                <i class="fas fa-redo"></i> Ayarları Sıfırla
-            </button>
-        </div>
-    </div>
-
-    <div id="a11y-reading-mask" class="a11y-reading-mask"><div id="a11y-reading-hole" class="a11y-reading-hole"></div></div>
-    <div id="a11y-reading-guide" class="a11y-reading-guide"></div>
-
-    <div class="top-bar">
-        <div class="container" style="display: flex; justify-content: flex-end; align-items: center;">
-            <div class="language-switcher">
-                <span style="margin-right: 10px; opacity: 0.7;">Select Language:</span>
-                <button onclick="setLang('tr')" title="Türkçe" aria-label="Türkçe Dil Seçeneği"><span class="flag-icon flag-icon-tr"></span></button>
-                <button onclick="setLang('en')" title="English (UK)" aria-label="English Language Option"><span class="flag-icon flag-icon-gb"></span></button>
-                <button onclick="setLang('ar')" title="Arabic (UAE)" aria-label="Arabic Language Option"><span class="flag-icon flag-icon-ae"></span></button>
-                <button onclick="setLang('ru')" title="Russian" aria-label="Russian Language Option"><span class="flag-icon flag-icon-ru"></span></button>
-            </div>
-        </div>
-    </div>
-
     <header>
         <div class="container navbar">
-            <div class="header-left-group">
-                <div class="logo"><a href="index.html" aria-label="Anasayfaya Dön"><img src="logo.png" alt="Emrah Çakmak SMMM Logo" /></a></div>
-                <div class="header-cert-logos">
-                    <div><img src="ismmmo.png" alt="İSMMMO Üye" /></div>
-                    <div><img src="cpa.png" alt="CPA Certified" /></div>
-                </div>
-            </div>
-            <button class="hamburger" id="hamburger-btn" onclick="toggleMenu()" aria-label="Menüyü Aç" aria-expanded="false"><i class="fas fa-bars"></i></button>
+            <div class="logo"><a href="https://emrahcakmak.com.tr"><img src="logo.png" alt="Emrah Çakmak SMMM Logo" /></a></div>
             <nav class="nav-links" id="navLinks">
-                <button class="mobile-close" id="mobile-close-btn" onclick="closeMenu()" aria-label="Menüyü Kapat"><i class="fas fa-times"></i></button>
-                <a href="index.html" id="nav-home" onclick="closeMenu()">Anasayfa</a>
-                <a href="index.html#kurumsal" id="nav-about" onclick="closeMenu()">Kurumsal</a>
-                <a href="index.html#hizmetler" id="nav-services" onclick="closeMenu()">Hizmetler</a>
-                <a href="blog.html" class="active" id="nav-blog" onclick="closeMenu()">Blog</a>
-                <a href="index.html#iletisim" id="nav-contact" onclick="closeMenu()">İletişim</a>
-                <a href="tel:+905335429364" class="btn-quote" id="nav-call-btn"><i class="fas fa-phone"></i> Bizi Arayın</a>
+                <a href="https://emrahcakmak.com.tr">Anasayfa</a>
+                <a href="https://emrahcakmak.com.tr/#kurumsal">Kurumsal</a>
+                <a href="https://emrahcakmak.com.tr/#hizmetler">Hizmetler</a>
+                <a href="index.html" class="active">Blog</a>
+                <a href="https://emrahcakmak.com.tr/#iletisim">İletişim</a>
             </nav>
         </div>
     </header>
@@ -395,34 +76,16 @@
         <section class="article-header">
             <div class="container">
                 <div class="breadcrumb">
-                    <a href="index.html" id="bread-home">Anasayfa</a> > 
-                    <a href="blog.html" id="bread-blog">Blog</a> > 
-                    <span id="bread-active">Makale Yükleniyor...</span>
+                    <a href="https://emrahcakmak.com.tr" id="bread-home">Anasayfa</a> > 
+                    <a href="index.html" id="bread-blog">Blog</a> > 
+                    <span id="bread-active">Yükleniyor...</span>
                 </div>
                 <h1 class="article-title" id="article-title">Yükleniyor...</h1>
                 <div style="color:var(--text-gray)" id="article-meta">
-                    <i class="far fa-calendar-alt" style="color:var(--accent-gold); margin-right:5px;"></i> <span id="date-text">--.--.----</span>
+                    <i class="far fa-calendar-alt"></i> <span id="date-text">--.--.----</span>
                 </div>
             </div>
         </section>
-
-        <div class="share-widget-container" id="shareContainer">
-            <button class="f-share-toggle" onclick="toggleShareMenu()" aria-label="Paylaşım Menüsünü Aç/Kapat">
-                <i class="fas fa-chevron-right"></i>
-            </button>
-            
-            <div class="floating-share-bar" id="floatingShareBar">
-                <a href="javascript:void(0)" onclick="shareArticle('linkedin')" class="f-share-btn li" title="LinkedIn'de Paylaş" aria-label="LinkedIn'de Paylaş">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="javascript:void(0)" onclick="shareArticle('whatsapp')" class="f-share-btn wa" title="WhatsApp'ta Gönder" aria-label="WhatsApp'ta Gönder">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-                <button onclick="shareArticle('copy')" class="f-share-btn cp" title="Bağlantıyı Kopyala" aria-label="Bağlantıyı Kopyala">
-                    <i class="fas fa-link"></i>
-                </button>
-            </div>
-        </div>
 
         <div class="container main-layout">
             <article class="content-area">
@@ -433,408 +96,96 @@
             </article>
 
             <aside class="sidebar">
-                
                 <div class="sidebar-box">
-                    <img src="profil.jpg" class="author-img" onerror="this.src='logo.png'" alt="Emrah Çakmak Profil">
+                    <img src="profil.jpg" class="author-img" onerror="this.src='logo.png'" alt="Profil">
                     <h4 id="sidebar-name">Emrah ÇAKMAK</h4>
-                    <span class="sidebar-title-job" id="sidebar-job">SMMM | Mali Müşavir</span>
-                    <p class="sidebar-desc" id="sidebar-desc">Uluslararası standartlarda finansal süreç yönetimi ve danışmanlık hizmetleri ile işletmenizin yanındayız.</p>
-                    <a href="https://wa.me/905335429364" class="btn-contact" id="btn-sidebar-contact"><i class="fab fa-whatsapp" style="font-size:1.2rem;"></i> Danışmanlık Al</a>
+                    <span style="color:var(--accent-gold); font-weight:bold; font-size:0.9rem;" id="sidebar-job">SMMM | Mali Müşavir</span>
+                    <p style="color:var(--text-gray); margin-top:10px; font-size:0.95rem;">Uluslararası standartlarda finansal süreç yönetimi ve danışmanlık hizmetleri ile işletmenizin yanındayız.</p>
                 </div>
 
                 <div class="sidebar-box widget-recent-posts">
-                    <h4 id="sidebar-recommended">Önerilen Makaleler</h4>
+                    <h4>Önerilen Makaleler</h4>
                     <div id="recommended-articles-list">
-                        <div style="text-align:center; padding:20px;"><i class="fas fa-spinner fa-spin" style="color:var(--accent-gold)"></i></div>
+                        <div style="text-align:center; padding:20px;"><i class="fas fa-spinner fa-spin"></i></div>
                     </div>
                 </div>
-
             </aside>
         </div>
     </main>
 
     <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col" style="text-align: left;">
-                    <div class="footer-logo-container">
-                        <a href="index.html" aria-label="Anasayfaya Dön"><img src="logo.png" alt="Logo" class="footer-logo-img" /></a>
-                    </div>
-                    <p id="footer-desc">Emrah ÇAKMAK SMMM Bürosu, etik değerlere bağlı, uluslararası standartlarda denetim ve danışmanlık hizmeti sunmaktadır.</p>
-                </div>
-                <div class="footer-col" style="text-align: left;">
-                    <h4 id="footer-quick">Hızlı Erişim</h4>
-                    <ul>
-                        <li><a href="index.html#kurumsal" id="footer-link-about">Kurumsal</a></li>
-                        <li><a href="index.html#hizmetler" id="footer-link-services">Hizmetler</a></li>
-                        <li><a href="blog.html" id="footer-link-blog">Blog</a></li>
-                        <li><a href="index.html#iletisim" id="footer-link-contact">İletişim</a></li>
-                        <li><button onclick="openModal('kvkkModal')" id="footer-link-kvkk" style="background:none; border:none; color:inherit; cursor:pointer; font-family:inherit; font-size:inherit; padding:0; text-align:left;">KVKK Aydınlatma Metni</button></li>
-                        <li><button onclick="openModal('privacyModal')" id="footer-link-privacy" style="background:none; border:none; color:inherit; cursor:pointer; font-family:inherit; font-size:inherit; padding:0; text-align:left; margin-top:10px;">Gizlilik Politikası</button></li>
-                        <li><button onclick="openCookieSettings()" id="footer-link-cookies" style="background:none; border:none; color:inherit; cursor:pointer; font-family:inherit; font-size:inherit; padding:0; text-align:left; margin-top:10px;">Çerez Ayarları</button></li>
-                    </ul>
-                </div>
-                <div class="footer-col" style="text-align: left;">
-                    <h4 id="footer-follow">Bizi Takip Edin</h4>
-                    <div class="social-icons">
-                        <a href="https://x.com/ecmusavirlik" target="_blank" rel="noopener" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a> 
-                        <a href="https://www.linkedin.com/company/emrahçakmak/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a> 
-                        <a href="https://wa.me/905335429364" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="bottom-bar">
-                <p>© <span id="year"></span> <span id="footer-copyright">Emrah ÇAKMAK Global Financial Consultancy. Tüm Hakları Saklıdır.</span></p>
-            </div>
-        </div>
+        <p>© <span id="year"></span> Emrah ÇAKMAK Global Financial Consultancy. Tüm Hakları Saklıdır.</p>
     </footer>
 
-    <a href="https://www.linkedin.com/company/emrahçakmak/" class="linkedin-float" target="_blank" rel="noopener" aria-label="LinkedIn Profilimiz"><i class="fa-brands fa-linkedin-in"></i></a>
-    <a href="https://wa.me/905335429364" class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp ile İletişime Geç"><i class="fa-brands fa-whatsapp"></i></a>
-
-    <div id="cookie-banner-advanced" class="cookie-banner-advanced" style="display:none; position:fixed; bottom:0; left:0; width:100%; background:#fff; padding:20px; box-shadow:0 -5px 20px rgba(0,0,0,0.1); z-index:10000; text-align:center;">
-        <p id="cookie-text-adv" style="margin-bottom:15px;">Web sitemizde en iyi deneyimi sunabilmek için çerezler kullanılmaktadır.</p>
-        <button onclick="acceptAllCookies()" id="btn-accept-all" style="background:var(--primary-dark); color:#fff; padding:10px 20px; border:none; cursor:pointer; margin-right:10px; border-radius:50px;">Hepsini Kabul Et</button>
-        <button onclick="openCookieSettings()" id="btn-cookie-settings" style="background:#f1f5f9; color:#333; padding:10px 20px; border:1px solid #ddd; cursor:pointer; border-radius:50px;">Ayarlar</button>
-    </div>
-    <div id="cookie-settings-modal" class="cookie-modal" role="dialog" aria-modal="true">
-        <div class="cookie-modal-content">
-            <button class="modal-close" onclick="closeCookieSettings()" aria-label="Kapat">×</button>
-            <h3 id="cookie-modal-title">Çerez Tercihleri</h3>
-            <p id="cookie-modal-desc">Sitemizin temel işlevlerini sağlamak için zorunlu çerezler kullanılmaktadır.</p>
-            <button onclick="saveCookieSettings()" id="btn-save-settings" style="width:100%; margin-top:10px; background:var(--primary-dark); color:#fff; padding:15px; border:none; cursor:pointer; font-weight:bold;">Kaydet ve Çık</button>
-        </div>
-    </div>
-
-    <div id="kvkkModal" class="modal" role="dialog" aria-labelledby="kvkk-title" aria-modal="true">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('kvkkModal')" aria-label="Kapat">×</button>
-            <h2 id="kvkk-title" tabindex="-1">KİŞİSEL VERİLERİN KORUNMASI VE İŞLENMESİ HAKKINDA AYDINLATMA METNİ</h2>
-            <div id="kvkk-body">
-                <h3>Veri Sorumlusu:</h3><p>6698 sayılı Kişisel Verilerin Korunması Kanunu (“Kanun”) uyarınca, Serbest Muhasebeci Mali Müşavir Emrah ÇAKMAK (“Emrah ÇAKMAK SMMM Ofisi”) olarak, veri sorumlusu sıfatıyla kişisel verilerinizi aşağıda açıklanan amaçlar kapsamında işlemekteyiz.</p><h3>1. Kişisel Verilerin İşlenme Amacı:</h3><p>Web sitemiz, iletişim kanallarımız veya ofisimiz aracılığıyla tarafımıza ilettiğiniz kimlik (Ad, Soyad), iletişim (E-posta, Telefon, Adres) ve müşteri işlem verileriniz; Mali müşavirlik, muhasebe ve danışmanlık hizmetlerinin yürütülmesi, İletişim faaliyetlerinin yürütülmesi ve taleplerinizin cevaplanması, Yasal yükümlülüklerin yerine getirilmesi (Vergi kanunları, SGK mevzuatı vb.), Yetkili kişi, kurum ve kuruluşlara bilgi verilmesi amaçlarıyla sınırlı olarak işlenmektedir.</p><h3>2. Kişisel Verilerin Aktarılması:</h3><p>Kişisel verileriniz; kanunen yetkili kamu kurumlarına (Gelir İdaresi Başkanlığı, SGK, TÜRMOB vb.) ve faaliyetlerimizi yürütmek üzere hizmet aldığımız tedarikçilerimize, Kanun’un 8. ve 9. maddelerinde belirtilen şartlar çerçevesinde aktarılabilir.</p><h3>3. Kişisel Veri Toplamanın Yöntemi ve Hukuki Sebebi:</h3><p>Kişisel verileriniz, tarafınızca web sitemizdeki formların doldurulması, e-posta gönderimi veya fiziki evrak teslimi yöntemleriyle toplanmaktadır. Bu veriler, Kanun’un 5. maddesinde belirtilen 'kanunlarda açıkça öngörülmesi', 'bir sözleşmenin kurulması veya ifası' ve 'veri sorumlusunun hukuki yükümlülüğü' sebeplerine dayanarak işlenmektedir.</p><h3>4. İlgili Kişinin Hakları:</h3><p>Kanun’un 11. maddesi kapsamındaki haklarınızı kullanmak için taleplerinizi yazılı olarak iletebilirsiniz: <br><strong>Posta Adresi:</strong> Şirinevler, Meriç Sk. Toyak İş Merkezi No:11 Kat:6 D:626, 34188 Bahçelievler / İSTANBUL <br><strong>E-posta:</strong> info@emrahcakmak.com.tr</p>
-            </div>
-        </div>
-    </div>
-    <div id="privacyModal" class="modal" role="dialog" aria-labelledby="privacy-title" aria-modal="true">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('privacyModal')" aria-label="Kapat">×</button>
-            <h2 id="privacy-title" tabindex="-1">GİZLİLİK POLİTİKASI</h2>
-            <div id="privacy-body">
-                <p>Emrah ÇAKMAK SMMM Ofisi olarak, web sitemizi ziyaret eden kullanıcılarımızın gizliliğini korumayı ilke ediniyoruz.</p><h3>1. Toplanan Bilgiler ve Kullanım</h3><p>Sitemizdeki iletişim formlarını kullandığınızda adınız, e-posta adresiniz ve mesajınız gibi bilgileri bizimle kendi rızanızla paylaşmış olursunuz. Bu bilgiler yalnızca size dönüş yapmak ve talebinizi yerine getirmek amacıyla kullanılır.</p><h3>2. Çerezler (Cookies)</h3><p>Web sitemiz, kullanıcı deneyimini iyileştirmek ve site trafiğini analiz etmek amacıyla çerezler kullanabilir. Tarayıcı ayarlarınızdan çerezleri dilediğiniz zaman engelleyebilirsiniz.</p><h3>3. Bilgi Güvenliği</h3><p>Paylaştığınız verilerin güvenliği için gerekli teknik ve idari tedbirler alınmaktadır. Kişisel verileriniz yasal zorunluluklar haricinde üçüncü şahıslarla paylaşılmaz.</p><h3>4. İletişim</h3><p>Gizlilik politikamızla ilgili sorularınız için bizimle iletişime geçebilirsiniz:<br><strong>Adres:</strong> Şirinevler, Meriç Sk. Toyak İş Merkezi No:11 Kat:6 D:626, 34188 Bahçelievler / İSTANBUL<br><strong>E-posta:</strong> info@emrahcakmak.com.tr</p>
-            </div>
-        </div>
-    </div>
-
     <script>
-        // --- 1. DEĞİŞKENLER VE ÇEVİRİ SÖZLÜĞÜ ---
         const urlParams = new URLSearchParams(window.location.search);
         const articleId = urlParams.get('id');
         let currentLang = urlParams.get('lang') || localStorage.getItem('preferredLang') || 'tr';
-        let lastFocusedElement;
 
-        const translationData = {
-            tr: {
-                "nav-home": "Anasayfa", "nav-about": "Kurumsal", "nav-services": "Hizmetler", "nav-contact": "İletişim", "nav-call-btn": "<i class='fas fa-phone'></i> Bizi Arayın", "skip-link-text": "Ana İçeriğe Atla", "nav-blog": "Blog",
-                "bread-home": "Anasayfa", "bread-blog": "Blog",
-                "sidebar-name": "Emrah ÇAKMAK", "sidebar-job": "SMMM | Mali Müşavir", "sidebar-desc": "Uluslararası standartlarda finansal süreç yönetimi ve danışmanlık hizmetleri ile işletmenizin yanındayız.",
-                "sidebar-recommended": "Önerilen Makaleler",
-                "btn-sidebar-contact": "<i class='fab fa-whatsapp' style='font-size:1.2rem;'></i> Danışmanlık Al",
-                "footer-desc": "Emrah ÇAKMAK SMMM Bürosu, etik değerlere bağlı, uluslararası standartlarda denetim ve danışmanlık hizmeti sunmaktadır.", "footer-quick": "Hızlı Erişim", "footer-follow": "Bizi Takip Edin", "footer-link-about": "Kurumsal", "footer-link-services": "Hizmetler", "footer-link-contact": "İletişim", "footer-link-kvkk": "KVKK Aydınlatma Metni", "footer-link-privacy": "Gizlilik Politikası", "footer-link-cookies": "Çerez Ayarları", "footer-copyright": "Emrah ÇAKMAK Global Financial Consultancy. Tüm Hakları Saklıdır.", "footer-link-blog": "Blog",
-                "kvkk-title": "KİŞİSEL VERİLERİN KORUNMASI", "privacy-title": "GİZLİLİK POLİTİKASI",
-                "cookie-text-adv": "Web sitemizde en iyi deneyimi sunabilmek için çerezler kullanılmaktadır.", "btn-accept-all": "Hepsini Kabul Et", "btn-cookie-settings": "Ayarlar", "btn-save-settings": "Kaydet ve Çık", "cookie-modal-title": "Çerez Tercihleri", "cookie-modal-desc": "Sitemizin temel işlevlerini sağlamak için zorunlu çerezler kullanılmaktadır."
-            },
-            en: {
-                "nav-home": "Home", "nav-about": "About", "nav-services": "Services", "nav-contact": "Contact", "nav-call-btn": "<i class='fas fa-phone'></i> Call Us", "skip-link-text": "Skip to Main Content", "nav-blog": "Blog",
-                "bread-home": "Home", "bread-blog": "Blog",
-                "sidebar-name": "Emrah ÇAKMAK", "sidebar-job": "CPA | Financial Advisor", "sidebar-desc": "We support your business with international standard financial process management and consultancy services.",
-                "sidebar-recommended": "Recommended Articles",
-                "btn-sidebar-contact": "<i class='fab fa-whatsapp' style='font-size:1.2rem;'></i> Get Consultancy",
-                "footer-desc": "Emrah ÇAKMAK CPA Office provides audit and consultancy services in international standards.", "footer-quick": "Quick Links", "footer-follow": "Follow Us", "footer-link-about": "About", "footer-link-services": "Services", "footer-link-contact": "Contact", "footer-link-kvkk": "PDPL Clarification Text", "footer-link-privacy": "Privacy Policy", "footer-link-cookies": "Cookie Settings", "footer-copyright": "Emrah ÇAKMAK Global Financial Consultancy. All Rights Reserved.", "footer-link-blog": "Blog",
-                "kvkk-title": "PROTECTION OF PERSONAL DATA", "privacy-title": "PRIVACY POLICY",
-                "cookie-text-adv": "We use cookies to ensure you get the best experience on our website.", "btn-accept-all": "Accept All", "btn-cookie-settings": "Settings", "btn-save-settings": "Save and Exit", "cookie-modal-title": "Cookie Preferences", "cookie-modal-desc": "Necessary cookies are used to ensure the basic functions of our site."
-            },
-            ar: {
-                "nav-home": "الرئيسية", "nav-about": "من نحن", "nav-services": "خدماتنا", "nav-contact": "اتصل بنا", "nav-call-btn": "<i class='fas fa-phone'></i> اتصل بنا", "skip-link-text": "الذهاب إلى المحتوى الرئيسي", "nav-blog": "مدونة",
-                "bread-home": "الرئيسية", "bread-blog": "مدونة",
-                "sidebar-name": "إمره تشاكماك", "sidebar-job": "محاسب قانوني | مستشار مالي", "sidebar-desc": "ندعم أعمالك من خلال إدارة العمليات المالية والخدمات الاستشارية ذات المعايير الدولية.",
-                "sidebar-recommended": "مقالات مقترحة",
-                "btn-sidebar-contact": "<i class='fab fa-whatsapp' style='font-size:1.2rem;'></i> احصل على استشارة",
-                "footer-desc": "يقدم مكتب Emrah ÇAKMAK خدمات التدقيق والاستشارات.", "footer-quick": "روابط سريعة", "footer-follow": "تابعنا", "footer-link-about": "من نحن", "footer-link-services": "خدماتنا", "footer-link-contact": "اتصل بنا", "footer-link-kvkk": "نص توضيحي KVKK", "footer-link-privacy": "سياسة الخصوصية", "footer-link-cookies": "إعدادات الكوكيز", "footer-copyright": "جميع الحقوق محفوظة.", "footer-link-blog": "مدونة",
-                "kvkk-title": "حماية البيانات الشخصية", "privacy-title": "سياسة الخصوصية",
-                "cookie-text-adv": "نستخدم ملفات تعريف الارتباط لضمان حصولك على أفضل تجربة.", "btn-accept-all": "قبول الكل", "btn-cookie-settings": "الإعدادات", "btn-save-settings": "حفظ وخروج", "cookie-modal-title": "تفضيلات الكوكيز", "cookie-modal-desc": "ملفات تعريف الارتباط الضرورية مطلوبة للوظائف الأساسية."
-            },
-            ru: {
-                "nav-home": "Главная", "nav-about": "О нас", "nav-services": "Услуги", "nav-contact": "Контакты", "nav-call-btn": "<i class='fas fa-phone'></i> Позвоните нам", "skip-link-text": "Перейти к основному содержанию", "nav-blog": "Блог",
-                "bread-home": "Главная", "bread-blog": "Блог",
-                "sidebar-name": "Эмрах ЧАКМАК", "sidebar-job": "CPA | Финансовый советник", "sidebar-desc": "Мы поддерживаем ваш бизнес с помощью управления финансовыми процессами и консалтинговых услуг по международным стандартам.",
-                "sidebar-recommended": "Рекомендуемые статьи",
-                "btn-sidebar-contact": "<i class='fab fa-whatsapp' style='font-size:1.2rem;'></i> Получить консультацию",
-                "footer-desc": "Офис Emrah ÇAKMAK предоставляет услуги аудита.", "footer-quick": "Ссылки", "footer-follow": "Подпишитесь", "footer-link-about": "О нас", "footer-link-services": "Услуги", "footer-link-contact": "Контакты", "footer-link-kvkk": "Текст KVKK", "footer-link-privacy": "Политика", "footer-link-cookies": "Настройки куки", "footer-copyright": "Все права защищены.", "footer-link-blog": "Блог",
-                "kvkk-title": "ЗАЩИТА ПЕРСОНАЛЬНЫХ ДАННЫХ", "privacy-title": "ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ",
-                "cookie-text-adv": "Мы используем куки для наилучшего опыта.", "btn-accept-all": "Принять все", "btn-cookie-settings": "Настройки", "btn-save-settings": "Сохранить", "cookie-modal-title": "Настройки куки", "cookie-modal-desc": "Обязательные куки нужны для основных функций."
-            }
-        };
-
-        // ==========================================================
-        // YENİ PROFESYONEL ERİŞİLEBİLİRLİK (A11Y) JS FONKSİYONLARI 
-        // ==========================================================
-        const a11yPanel = document.getElementById('a11y-panel');
-        const a11yOverlay = document.getElementById('a11y-overlay');
-        const a11yOpenBtn = document.getElementById('a11y-open-btn');
-        const a11yCloseBtn = document.getElementById('a11y-close-btn');
-        let currentFontSize = parseInt(localStorage.getItem('a11y-fontsize')) || 100;
-
-        function toggleA11yPanel(forceState) {
-            const isOpen = forceState !== undefined ? forceState : !a11yPanel.classList.contains('open');
-            if (isOpen) {
-                a11yPanel.classList.add('open');
-                a11yOverlay.classList.add('active');
-                a11yOpenBtn.setAttribute("aria-expanded", "true");
-            } else {
-                a11yPanel.classList.remove('open');
-                a11yOverlay.classList.remove('active');
-                a11yOpenBtn.setAttribute("aria-expanded", "false");
-            }
-        }
-
-        a11yOpenBtn.addEventListener('click', () => toggleA11yPanel(true));
-        a11yCloseBtn.addEventListener('click', () => toggleA11yPanel(false));
-        a11yOverlay.addEventListener('click', () => toggleA11yPanel(false));
-
-        function loadA11ySettings() {
-            document.body.style.fontSize = currentFontSize + "%";
-            document.getElementById('a11y-size-indicator').innerText = currentFontSize + "%";
-
-            const settings = [
-                { id: 'btn-a11y-contrast', class: 'a11y-high-contrast' },
-                { id: 'btn-a11y-lightbg', class: 'a11y-light-bg' },
-                { id: 'btn-a11y-grayscale', class: 'a11y-grayscale' },
-                { id: 'btn-a11y-dyslexic', class: 'a11y-dyslexic' },
-                { id: 'btn-a11y-spaced', class: 'a11y-text-spaced' },
-                { id: 'btn-a11y-links', class: 'a11y-highlight-links' },
-                { id: 'btn-a11y-hideimg', class: 'a11y-hide-images' },
-                { id: 'btn-a11y-guide', class: 'a11y-guide-active' },
-                { id: 'btn-a11y-mask', class: 'a11y-mask-active' }
-            ];
-
-            settings.forEach(setting => {
-                if (localStorage.getItem(setting.class) === 'true') {
-                    document.body.classList.add(setting.class);
-                    document.getElementById(setting.id).classList.add('active');
-                    
-                    if(setting.class === 'a11y-guide-active' || setting.class === 'a11y-mask-active') {
-                        document.addEventListener('mousemove', moveA11yTools);
-                    }
-                }
-            });
-        }
-
-        function a11yChangeFontSize(step) {
-            currentFontSize += step;
-            if (currentFontSize < 80) currentFontSize = 80;
-            if (currentFontSize > 150) currentFontSize = 150;
-            
-            document.body.style.fontSize = currentFontSize + "%";
-            document.getElementById('a11y-size-indicator').innerText = currentFontSize + "%";
-            localStorage.setItem('a11y-fontsize', currentFontSize);
-        }
-
-        function a11yToggleClass(className, btnId, conflictClasses = []) {
-            const body = document.body;
-            const btn = document.getElementById(btnId);
-            const isActive = body.classList.toggle(className);
-            
-            if (isActive && conflictClasses.length > 0) {
-                conflictClasses.forEach(c => {
-                    body.classList.remove(c);
-                    localStorage.setItem(c, 'false');
-                    const allBtns = document.querySelectorAll('.a11y-btn-item');
-                    allBtns.forEach(b => { if(b.getAttribute('onclick').includes(c)) b.classList.remove('active'); });
-                });
-            }
-
-            if (isActive) btn.classList.add('active');
-            else btn.classList.remove('active');
-
-            localStorage.setItem(className, isActive);
-
-            if (className === 'a11y-guide-active' || className === 'a11y-mask-active') {
-                if (isActive) document.addEventListener('mousemove', moveA11yTools);
-                else if (!body.classList.contains('a11y-guide-active') && !body.classList.contains('a11y-mask-active')) {
-                    document.removeEventListener('mousemove', moveA11yTools);
-                }
-            }
-        }
-
-        function moveA11yTools(e) {
-            const guide = document.getElementById('a11y-reading-guide');
-            const hole = document.getElementById('a11y-reading-hole');
-            if (guide) guide.style.top = e.clientY + 'px';
-            if (hole) hole.style.top = e.clientY + 'px';
-        }
-
-        let speechSynth = window.speechSynthesis;
-        function a11yReadPage() {
-            if (!speechSynth) return alert("Tarayıcınız sesli okumayı desteklemiyor.");
-            speechSynth.cancel(); 
-            
-            // Makalenin içeriğini metin formatında alır (Markdown HTML'e çevrilmiş olsa bile çalışır)
-            const contentToRead = document.getElementById('article-body').innerText;
-            const utterance = new SpeechSynthesisUtterance(contentToRead);
-            utterance.lang = currentLang === 'tr' ? 'tr-TR' : (currentLang === 'en' ? 'en-US' : 'tr-TR');
-            utterance.rate = 0.9;
-            
-            document.getElementById('btn-tts-play').classList.add('active');
-            
-            utterance.onend = () => { document.getElementById('btn-tts-play').classList.remove('active'); };
-            speechSynth.speak(utterance);
-        }
-
-        function a11yStopReading() {
-            if (speechSynth) {
-                speechSynth.cancel();
-                document.getElementById('btn-tts-play').classList.remove('active');
-            }
-        }
-
-        function a11yResetAll() {
-            currentFontSize = 100;
-            document.body.style.fontSize = "100%";
-            document.getElementById('a11y-size-indicator').innerText = "100%";
-            localStorage.setItem('a11y-fontsize', 100);
-
-            const classesToRemove = ['a11y-high-contrast', 'a11y-light-bg', 'a11y-grayscale', 'a11y-dyslexic', 'a11y-text-spaced', 'a11y-highlight-links', 'a11y-hide-images', 'a11y-guide-active', 'a11y-mask-active'];
-            
-            classesToRemove.forEach(c => {
-                document.body.classList.remove(c);
-                localStorage.removeItem(c);
-            });
-
-            document.querySelectorAll('.a11y-btn-item').forEach(btn => btn.classList.remove('active'));
-            
-            document.removeEventListener('mousemove', moveA11yTools);
-            a11yStopReading();
-        }
-
-        window.addEventListener('DOMContentLoaded', loadA11ySettings);
-        // ==========================================================
-
-        // --- 2. DİL VE STATİK ALANLARI GÜNCELLEME ---
-        function setLang(lang) {
-            currentLang = lang;
-            localStorage.setItem('preferredLang', lang);
-            
-            const elements = document.querySelectorAll('[id]');
-            const selectedLang = translationData[lang] || translationData['tr'];
-
-            elements.forEach(el => {
-                if (selectedLang[el.id]) { el.innerHTML = selectedLang[el.id]; }
-            });
-
-            if(lang === 'ar') { 
-                document.body.style.direction = "rtl"; 
-                document.body.style.textAlign = "right"; 
-                document.documentElement.lang = "ar";
-            } else { 
-                document.body.style.direction = "ltr"; 
-                document.body.style.textAlign = "left"; 
-                document.documentElement.lang = lang;
-            }
-
-            closeMenu();
-            
-            if(articleId) {
-                const url = new URL(window.location);
-                url.searchParams.set('lang', lang);
-                window.history.pushState({}, '', url);
-                loadDetail();
-            }
-        }
-
-        // --- 3. MAKALE DETAYINI VE ÖNERİLERİ ÇEKME (DİLLİ & HİBRİT SİSTEM) ---
         async function loadDetail() {
             try {
                 const res = await fetch('articles.json?v=' + Date.now());
                 const data = await res.json();
                 
-                // CMS verileri 'articles' listesi içinde tutar, eski sistem ise düz Array [] olabilirdi
                 let allArticles = Array.isArray(data) ? data : (data.articles || []);
                 
-                // Sıralamayı ve ID senkronizasyonunu blog.html ile BİREBİR AYNI yapıyoruz
                 allArticles.sort((a, b) => new Date(b.date) - new Date(a.date));
-                allArticles.forEach((a, index) => {
-                    a.internalId = index;
-                });
+                allArticles.forEach((a, index) => { a.internalId = index; });
                 
-                // Tıklanan makaleyi bul (eski sistem ID'si veya yeni sistem index'i)
                 const article = allArticles.find(a => a.id == articleId || a.internalId == articleId);
 
                 if (!article) {
-                    document.getElementById('article-body').innerHTML = "<h2>Makale bulunamadı.</h2><a href='blog.html' style='color:var(--accent-gold); font-weight:bold;'>Blog'a dön</a>";
-                    document.getElementById('article-title').innerText = "Hata - Sayfa Bulunamadı";
+                    document.getElementById('article-body').innerHTML = "<h2>Makale bulunamadı.</h2><a href='index.html'>Blog'a dön</a>";
+                    document.getElementById('article-title').innerText = "Hata";
                     document.getElementById('bread-active').innerText = "Hata";
-                    document.getElementById('image-container').innerHTML = "";
-                    document.querySelector('.share-widget-container').style.display = "none";
-                    document.querySelector('.widget-recent-posts').style.display = "none";
                     return;
                 }
 
-                // DİLLİ İÇERİK KONTROLÜ (ÇOK ÖNEMLİ)
                 const content = article[currentLang] || article['tr'] || article;
-
                 const title = content.title || "Başlık Yok";
                 const dateObj = article.date ? new Date(article.date) : new Date();
                 const dateStr = dateObj.toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' });
                 const image = article.image || "logo.png";
 
-                // Meta bilgileri ve sayfa başlığını güncelle
                 document.title = title + " | Emrah ÇAKMAK SMMM";
                 document.getElementById('article-title').innerText = title;
                 document.getElementById('bread-active').innerText = title.length > 30 ? title.substring(0, 30) + "..." : title;
                 document.getElementById('date-text').innerText = dateStr;
 
-                // Resmi yerleştir
                 if (article.image) {
-                    document.getElementById('image-container').innerHTML = `<img src="${image}" class="main-img" alt="${title}" onerror="this.src='bina.jpg'">`;
-                } else {
-                    document.getElementById('image-container').innerHTML = "";
+                    document.getElementById('image-container').innerHTML = `<img src="${image}" class="main-img" onerror="this.src='logo.png'">`;
                 }
 
-                // İÇERİK (BODY VEYA FILE) OKUMA KONTROLÜ
+                // DİLLİ İÇERİK KONTROLÜ (HİBRİT SİSTEM)
                 if (content.file) {
                     try {
                         const fileRes = await fetch(content.file);
                         if (fileRes.ok) {
-                            const htmlText = await fileRes.text();
-                            document.getElementById('article-body').innerHTML = htmlText;
+                            document.getElementById('article-body').innerHTML = await fileRes.text();
                         } else {
-                            // Dosya yoksa CMS gövdesini dene
-                            document.getElementById('article-body').innerHTML = content.body ? marked.parse(content.body) : `<p>İçerik dosyası (${content.file}) sunucuda bulunamadı.</p>`;
+                            document.getElementById('article-body').innerHTML = content.body ? marked.parse(content.body) : `<p>İçerik dosyası bulunamadı.</p>`;
                         }
                     } catch(e) {
                          document.getElementById('article-body').innerHTML = content.body ? marked.parse(content.body) : `<p>İçerik okunamadı.</p>`;
                     }
                 } 
                 else if (content.body) {
-                    // Doğrudan CMS'ten girilmiş "body"
                     document.getElementById('article-body').innerHTML = marked.parse(content.body);
                 } 
                 else {
-                    document.getElementById('article-body').innerHTML = `<p>Bu içerik henüz eklenmemiş veya silinmiş.</p>`;
+                    document.getElementById('article-body').innerHTML = `<p>Bu içerik henüz eklenmemiş.</p>`;
                 }
 
-                // Önerilen makaleleri getir
                 renderRecommendations(allArticles, article.internalId);
 
             } catch (error) {
                 console.error("Hata:", error);
-                document.getElementById('article-body').innerHTML = "<p>Bir bağlantı hatası oluştu veya articles.json dosyası okunamadı. Lütfen sayfayı yenileyin.</p>";
+                document.getElementById('article-body').innerHTML = "<p>Bir hata oluştu. Lütfen sayfayı yenileyin.</p>";
             }
         }
 
         function renderRecommendations(allArticles, currentArticleInternalId) {
             const listContainer = document.getElementById('recommended-articles-list');
-            
             const otherArticles = allArticles.filter(a => a.internalId != currentArticleInternalId);
             const shuffled = otherArticles.sort(() => 0.5 - Math.random()).slice(0, 3);
             
@@ -845,119 +196,25 @@
                 const image = a.image || "logo.png";
                 const dateObj = a.date ? new Date(a.date) : new Date();
                 const dateStr = dateObj.toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' });
-
                 const linkId = a.id !== undefined ? a.id : a.internalId;
 
                 html += `
                     <a href="blog-detay.html?id=${linkId}&lang=${currentLang}" class="recent-post-item">
-                        <img src="${image}" class="recent-post-img" onerror="this.src='logo.png'" alt="Thumbnail">
+                        <img src="${image}" class="recent-post-img" onerror="this.src='logo.png'">
                         <div class="recent-post-info">
                             <h5>${title}</h5>
-                            <span><i class="far fa-calendar-alt"></i> ${dateStr}</span>
+                            <span>${dateStr}</span>
                         </div>
                     </a>
                 `;
             });
-            
-            listContainer.innerHTML = html || "<p style='font-size:0.9rem; color:gray;'>Öneri bulunamadı.</p>";
+            listContainer.innerHTML = html || "<p>Öneri bulunamadı.</p>";
         }
 
-        // --- 4. YÜZEN PAYLAŞIM VE DİĞER FONKSİYONLAR ---
-        function toggleShareMenu() {
-            const container = document.getElementById('shareContainer');
-            const shareBar = document.getElementById('floatingShareBar');
-            
-            container.classList.toggle('open');
-            shareBar.classList.toggle('show');
-        }
-
-        function shareArticle(platform) {
-            const currentUrl = encodeURIComponent(window.location.href);
-            const articleTitle = encodeURIComponent(document.title + " | Okumak için tıkla: ");
-
-            if (platform === 'linkedin') {
-                window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${currentUrl}`, '_blank');
-            } 
-            else if (platform === 'whatsapp') {
-                window.open(`https://api.whatsapp.com/send?text=${articleTitle}${currentUrl}`, '_blank');
-            } 
-            else if (platform === 'copy') {
-                navigator.clipboard.writeText(window.location.href).then(() => {
-                    const alertMsg = currentLang === 'en' ? 'Link copied to clipboard!' : 
-                                     currentLang === 'ar' ? 'تم نسخ الرابط!' : 
-                                     currentLang === 'ru' ? 'Ссылка скопирована!' : 
-                                     'Makale bağlantısı kopyalandı!';
-                    alert(alertMsg);
-                }).catch(err => {
-                    console.error('Kopyalama başarısız oldu: ', err);
-                });
-            }
-        }
-
-        function toggleMenu() { 
-            const nav = document.getElementById('navLinks');
-            const hamburger = document.getElementById('hamburger-btn');
-            const mobileClose = document.getElementById('mobile-close-btn');
-            nav.classList.toggle('active');
-            if (nav.classList.contains('active')) {
-                hamburger.setAttribute('aria-expanded', 'true');
-                mobileClose.style.display = 'block';
-            } else {
-                hamburger.setAttribute('aria-expanded', 'false');
-                mobileClose.style.display = 'none';
-            }
-        }
-
-        function closeMenu() { 
-            const nav = document.getElementById('navLinks');
-            if (nav.classList.contains('active')) {
-                nav.classList.remove('active');
-                document.getElementById('hamburger-btn').setAttribute('aria-expanded', 'false');
-                document.getElementById('mobile-close-btn').style.display = 'none';
-            }
-        }
-
-        function openModal(id, triggerElement) {
-            if (triggerElement) lastFocusedElement = triggerElement;
-            document.getElementById(id).style.display = "flex";
-        }
-
-        function closeModal(id) {
-            document.getElementById(id).style.display = "none";
-            if (lastFocusedElement) lastFocusedElement.focus();
-        }
-
-        function acceptAllCookies() {
-            localStorage.setItem('cookieConsent', 'true');
-            document.getElementById('cookie-banner-advanced').style.display = 'none';
-        }
-        function openCookieSettings() {
-            document.getElementById('cookie-settings-modal').style.display = 'flex';
-        }
-        function closeCookieSettings() {
-            document.getElementById('cookie-settings-modal').style.display = 'none';
-        }
-        function saveCookieSettings() {
-            localStorage.setItem('cookieConsent', 'true');
-            document.getElementById('cookie-settings-modal').style.display = 'none';
-            document.getElementById('cookie-banner-advanced').style.display = 'none';
-        }
-
-        // --- 5. BAŞLATMA ---
         window.onload = function() {
             document.getElementById('year').textContent = new Date().getFullYear();
-            setLang(currentLang); 
-            
-            if (!localStorage.getItem('cookieConsent')) {
-                document.getElementById('cookie-banner-advanced').style.display = 'block';
-            }
+            loadDetail();
         };
-
-        window.onclick = function(event) { 
-            if (event.target.classList.contains('modal') || event.target.classList.contains('cookie-modal')) { 
-                event.target.style.display = "none"; 
-            } 
-        }
     </script>
 </body>
 </html>
