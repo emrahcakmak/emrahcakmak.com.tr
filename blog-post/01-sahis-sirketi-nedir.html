@@ -1,0 +1,191 @@
+<style>
+    .post-content-wrapper {
+        font-family: var(--font-body, 'Roboto', sans-serif);
+        color: var(--text-gray, #475569);
+        line-height: 1.8;
+        font-size: 1.1rem;
+    }
+    .post-content-wrapper h2 {
+        font-family: var(--font-heading, 'Playfair Display', serif);
+        color: var(--primary-dark, #0f172a);
+        font-size: 2rem;
+        margin: 45px 0 20px;
+        border-left: 5px solid var(--accent-gold, #c5a059);
+        padding-left: 15px;
+    }
+    
+    /* Okunaklı Giriş Metni */
+    .post-lead {
+        font-size: 1.25rem;
+        color: var(--primary-blue, #1e293b);
+        margin-bottom: 30px;
+        font-weight: 400;
+        line-height: 1.9;
+    }
+
+    /* Dinamik ve Modern Paylaşım Butonları */
+    .post-share-bar {
+        display: flex; align-items: center; gap: 15px; margin-bottom: 30px;
+        padding-bottom: 25px; border-bottom: 1px solid #e2e8f0;
+    }
+    .post-share-text { font-size: 0.9rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; color: var(--primary-dark, #0f172a); }
+    .post-share-btn {
+        width: 42px; height: 42px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
+        color: #fff; text-decoration: none; font-size: 1.2rem; transition: all 0.3s ease; border: none; cursor: pointer;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .post-share-btn.li { background: #0077b5; }
+    .post-share-btn.wa { background: #25d366; }
+    .post-share-btn.cp { background: var(--text-gray, #475569); }
+    .post-share-btn:hover { transform: translateY(-4px) scale(1.05); box-shadow: 0 8px 15px rgba(0,0,0,0.15); color: #fff; }
+
+    /* Vurgulu Uzman Notu Kutusu */
+    .post-note-box {
+        background: linear-gradient(145deg, var(--light-bg, #f8fafc), #ffffff);
+        border-left: 5px solid var(--accent-gold, #c5a059);
+        padding: 30px; margin: 40px 0; border-radius: 0 12px 12px 0;
+        box-shadow: 0 5px 25px rgba(0,0,0,0.04);
+        position: relative;
+    }
+    .post-note-icon {
+        position: absolute; top: 25px; right: 25px; font-size: 2.5rem; color: rgba(197, 160, 89, 0.15);
+    }
+
+    /* Modern Tablo Tasarımı */
+    .post-table-container { overflow-x: auto; margin: 30px 0; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; }
+    .post-table { width: 100%; border-collapse: collapse; background: #fff; margin: 0; }
+    .post-table th { background: var(--primary-dark, #0f172a); color: #fff; padding: 18px 20px; text-align: left; font-family: var(--font-heading, 'Playfair Display', serif); font-size: 1.15rem; font-weight: 600; }
+    .post-table td { padding: 16px 20px; border-bottom: 1px solid #f1f5f9; color: var(--text-gray, #475569); vertical-align: middle; }
+    .post-table tr:last-child td { border-bottom: none; }
+    .post-table tr:hover td { background: #f8fafc; }
+    
+    /* Akordiyon (SSS) Alanı */
+    .post-faq details { background: #fff; border: 1px solid #e2e8f0; padding: 20px; border-radius: 10px; margin-bottom: 15px; transition: all 0.3s ease; cursor: pointer; }
+    .post-faq details:hover { border-color: var(--accent-gold, #c5a059); box-shadow: 0 5px 15px rgba(197, 160, 89, 0.08); }
+    .post-faq summary { font-weight: 600; color: var(--primary-dark, #0f172a); font-size: 1.15rem; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+    .post-faq summary::-webkit-details-marker { display: none; }
+    .post-faq summary::after { content: '\f067'; font-family: 'Font Awesome 5 Free'; font-weight: 900; color: var(--accent-gold, #c5a059); transition: transform 0.3s; }
+    .post-faq details[open] summary::after { transform: rotate(45deg); }
+    .post-faq details p { margin-top: 15px; margin-bottom: 0; padding-top: 15px; border-top: 1px dashed #e2e8f0; color: var(--text-gray, #475569); }
+
+    /* Aksiyon (CTA) Banner */
+    .post-cta { 
+        background: linear-gradient(135deg, var(--primary-dark, #0f172a) 0%, #1e293b 100%); 
+        padding: 50px 40px; border-radius: 15px; color: #fff; text-align: center; margin: 60px 0 20px; 
+        position: relative; overflow: hidden; box-shadow: 0 15px 30px rgba(15, 23, 42, 0.2);
+    }
+    .post-cta h3 { color: var(--accent-gold, #c5a059); font-size: 2rem; margin-bottom: 15px; }
+    .post-cta-btn { 
+        display: inline-block; padding: 16px 40px; background: var(--accent-gold, #c5a059); color: #000 !important; 
+        text-decoration: none; border-radius: 50px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; 
+        transition: 0.3s; margin-top: 20px; border: 2px solid var(--accent-gold, #c5a059);
+    }
+    .post-cta-btn:hover { background: transparent; color: var(--accent-gold, #c5a059) !important; transform: translateY(-3px); }
+</style>
+
+<div class="post-content-wrapper">
+
+    <div class="post-share-bar">
+        <span class="post-share-text">Bu Makaleyi Paylaş:</span>
+        <a href="javascript:void(0)" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(window.location.href), '_blank')" class="post-share-btn li" title="LinkedIn'de Paylaş">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="javascript:void(0)" onclick="window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(document.title + ' | Okumak için tıkla: ' + window.location.href), '_blank')" class="post-share-btn wa" title="WhatsApp'ta Gönder">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <button onclick="navigator.clipboard.writeText(window.location.href).then(() => alert('Makale bağlantısı kopyalandı!'))" class="post-share-btn cp" title="Bağlantıyı Kopyala">
+            <i class="fas fa-link"></i>
+        </button>
+    </div>
+
+    <p class="post-lead">
+        Hayalinizdeki işi kurmak için atacağınız ilk adım şirket türüne karar vermektir. 2026 yılı itibarıyla değişen mevzuatlar ve yeni girişimci destekleri ışığında şahıs şirketlerini tüm şeffaflığıyla inceledik.
+    </p>
+
+    <h2>Şahıs Şirketi Nedir?</h2>
+    <p>Şahıs şirketi (<em>Sole Proprietorship</em>), tüzel kişiliğin bizzat girişimcinin kendisi olduğu, bürokrasinin en az olduğu yapıdır. E-ticaret, freelancer ve danışmanlar için en hızlı başlangıç modelidir.</p>
+
+    <div class="post-note-box">
+        <i class="fas fa-quote-right post-note-icon"></i>
+        <strong style="color: var(--primary-dark, #0f172a); display: block; margin-bottom: 10px; font-size: 1.15rem;">
+            <i class="fas fa-user-tie" style="color: var(--accent-gold, #c5a059); margin-right: 8px;"></i> Emrah Çakmak'ın Notu:
+        </strong>
+        <p style="margin-bottom: 0; font-style: italic; color: var(--primary-blue, #1e293b);">
+            "Yıllık net kârınız 2 Milyon TL seviyesinin altındaysa, Limited Şirket kurarak yüksek masraflara girmeyin. Şahıs şirketi ile başlayıp büyüdüğünde tür değişikliği yapmak en sağlıklı stratejidir."
+        </p>
+    </div>
+
+    <h2>2026 Yılında Şahıs Şirketi Kurmanın Avantajları</h2>
+    <ul style="list-style-type: none; padding-left: 0; margin-bottom: 30px;">
+        <li style="margin-bottom: 15px; position: relative; padding-left: 30px;">
+            <i class="fas fa-check-circle" style="color: var(--accent-gold, #c5a059); position: absolute; left: 0; top: 5px;"></i>
+            <strong style="color: var(--primary-dark, #0f172a);">Hız:</strong> Sadece 24 saat içinde vergi levhanız çıkar.
+        </li>
+        <li style="margin-bottom: 15px; position: relative; padding-left: 30px;">
+            <i class="fas fa-check-circle" style="color: var(--accent-gold, #c5a059); position: absolute; left: 0; top: 5px;"></i>
+            <strong style="color: var(--primary-dark, #0f172a);">Düşük Maliyet:</strong> Kuruluş masrafları sermaye şirketlerine göre %70 daha uygundur.
+        </li>
+        <li style="margin-bottom: 15px; position: relative; padding-left: 30px;">
+            <i class="fas fa-check-circle" style="color: var(--accent-gold, #c5a059); position: absolute; left: 0; top: 5px;"></i>
+            <strong style="color: var(--primary-dark, #0f172a);">Vergi Avantajı:</strong> Geliriniz düşükken %15'lik vergi diliminden faydalanırsınız.
+        </li>
+    </ul>
+
+    <h2><i class="fas fa-exclamation-circle" style="color: #b91c1c;"></i> 2026 Kritik Mevzuat Güncellemesi</h2>
+    <p><strong>7566 sayılı Kanun</strong> ile 1 Ocak 2026 itibarıyla genç girişimci desteklerinde değişikliğe gidildi. İş planınızı yaparken aşağıdaki tabloyu dikkate almalısınız:</p>
+    
+    <div class="post-table-container">
+        <table class="post-table">
+            <thead>
+                <tr>
+                    <th>Destek Türü</th>
+                    <th>2025 ve Öncesi</th>
+                    <th>2026 ve Sonrası</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="font-weight: 600; color: var(--primary-dark, #0f172a);">Bağ-Kur Primi</td>
+                    <td style="color: #059669; font-weight: 500;"><i class="fas fa-shield-alt"></i> Devlet Ödüyordu</td>
+                    <td style="color: #dc2626; font-weight: 700;"><i class="fas fa-hand-holding-usd"></i> Girişimci Öder</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: 600; color: var(--primary-dark, #0f172a);">Gelir Vergisi İstisnası</td>
+                    <td style="color: #059669; font-weight: 500;">3 Yıl Geçerli</td>
+                    <td style="color: #059669; font-weight: 700;"><i class="fas fa-check"></i> Devam Ediyor</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h2>Sıkça Sorulan Sorular</h2>
+    <div class="post-faq">
+        <details>
+            <summary>Sigortalı çalışırken şirket kurabilir miyim?</summary>
+            <p>Evet! 4A (SSK) kapsamında sigortanız sürdüğü sürece kendi şirketiniz için <strong>Bağ-Kur primi ödemezsiniz.</strong> Bu durum, kendi işini denemek isteyen beyaz yakalılar için mükemmel bir fırsattır.</p>
+        </details>
+        <details>
+            <summary>E-ticaret için şahıs şirketi yeterli mi?</summary>
+            <p>Kesinlikle yeterli. Trendyol, Hepsiburada ve Amazon gibi pazar yerlerinde mağaza açmak ve e-ihracat yapmak için şahıs şirketi statüsü tam uyumluluk sağlamaktadır.</p>
+        </details>
+    </div>
+
+    <div class="post-cta">
+        <h3>Şirketinizi Bugün Kuralım</h3>
+        <p style="font-size: 1.15rem; opacity: 0.9;">Uzman mali müşavirlik desteğimizle sürpriz masraflarla karşılaşmadan, tamamen yasalara uygun bir şekilde ticaret hayatına başlayın.</p>
+        <a href="index.html#iletisim" class="post-cta-btn">
+            Ücretsiz Analiz İsteyin <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+        </a>
+    </div>
+
+    <div class="post-share-bar" style="border-bottom: none; border-top: 1px solid #e2e8f0; padding-top: 30px; margin-top: 20px; justify-content: center;">
+        <span class="post-share-text" style="color: var(--text-gray, #475569);">Bu İçeriği Faydalı Buldunuz Mu? Paylaşın:</span>
+        <a href="javascript:void(0)" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(window.location.href), '_blank')" class="post-share-btn li" title="LinkedIn'de Paylaş">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="javascript:void(0)" onclick="window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(document.title + ' | Okumak için tıkla: ' + window.location.href), '_blank')" class="post-share-btn wa" title="WhatsApp'ta Gönder">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+</div>
