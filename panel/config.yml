@@ -1,1 +1,27 @@
+backend:
+  name: github
+  repo: emrahcakmak/emrahcakmak.com.tr
+  branch: main
+  client_id: "Ov23liyYa3Fr29HHq6Gd"
 
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "blog"
+    label: "Blog Yönetimi"
+    files:
+      - label: "Makaleler Veritabanı"
+        name: "articles"
+        file: "articles.json"
+        fields:
+          - label: "Makale Listesi"
+            name: "articles"
+            widget: "list"
+            fields:
+              - {label: "Başlık", name: "title", widget: "string"}
+              - {label: "Özet", name: "summary", widget: "text", required: false}
+              - {label: "Yayın Tarihi", name: "date", widget: "datetime"}
+              - {label: "Öne Çıkan Görsel", name: "image", widget: "image", required: false}
+              - {label: "Etiketler", name: "tags", widget: "string", required: false}
+              - {label: "İçerik", name: "body", widget: "markdown"}
