@@ -20,7 +20,6 @@
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
     <style>
-        /* --- ANA SAYFA İLE BİREBİR AYNI TEMEL STİLLER --- */
         :root {
             --primary-dark: #0f172a;
             --primary-blue: #1e293b;
@@ -55,7 +54,6 @@
         img { max-width: 100%; height: auto; display: block; transition: transform 0.5s ease; }
         h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 700; margin-top: 0; letter-spacing: -0.5px; }
 
-        /* HEADER & NAV */
         .top-bar { background: var(--primary-dark); color: #94a3b8; font-size: 0.85rem; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
         .container { max-width: 1200px; margin: auto; padding: 0 20px; }
         .language-switcher button { background: none; border: none; cursor: pointer; padding: 5px; margin-left: 5px; transition: transform 0.3s; }
@@ -90,7 +88,6 @@
         .hamburger { display: none; font-size: 1.5rem; cursor: pointer; color: var(--primary-dark); border: none; background: transparent; }
         .mobile-close { display: none; position: absolute; top: 20px; right: 20px; font-size: 2rem; cursor: pointer; color: var(--primary-dark); z-index: 2001; border: none; background: transparent; }
 
-        /* --- BLOGA ÖZEL STİLLER --- */
         .blog-hero { position: relative; background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.9)), url('blogkapak.jpg') center/cover; color: #fff; padding: 100px 0; text-align: center; }
         .blog-hero h1 { font-family: var(--font-heading); font-size: 3.5rem; margin: 0 0 15px; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
         .blog-hero p { font-size: 1.2rem; font-weight: 300; opacity: 0.9; max-width: 600px; margin: 0 auto; }
@@ -103,7 +100,6 @@
         .tag-btn:hover { border-color: var(--accent-gold); color: var(--primary-dark); }
         .tag-btn.active { background: var(--primary-dark); color: #fff; border-color: var(--primary-dark); box-shadow: 0 5px 15px rgba(15, 23, 42, 0.2); }
 
-        /* ANA SAYFADAKİ BLOG KARTLARI İLE BİREBİR AYNI YAPI */
         .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 40px; }
         .blog-card { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: 0.3s; cursor: pointer; border: 1px solid #eee; display: flex; flex-direction: column; }
         .blog-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); border-color: var(--accent-gold); }
@@ -119,7 +115,6 @@
         .blog-card:hover .read-more-btn { color: var(--accent-gold); }
         .blog-card:hover .read-more-btn i { transform: translateX(5px); }
 
-        /* FOOTER & MODALS */
         footer { background: #0b1120; color: #94a3b8; padding: 80px 0 30px; font-size: 0.9rem; }
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; margin-bottom: 50px; }
         .footer-col h4 { color: #fff; margin-bottom: 25px; font-size: 1.2rem; font-family: var(--font-heading); }
@@ -131,52 +126,34 @@
         .social-icons a:hover { background: var(--accent-gold); color: #000; transform: translateY(-5px) rotate(360deg); }
         .bottom-bar { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; }
 
-        /* Erişilebilirlik ve Floating Butonlar */
         .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: var(--whatsapp-green); color: #fff; width: 60px; height: 60px; border-radius: 50%; text-align: center; line-height: 60px; font-size: 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); z-index: 2000; transition: 0.3s; display: flex; align-items: center; justify-content: center; }
         .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 15px 30px rgba(0,0,0,0.3); }
         .linkedin-float { position: fixed; bottom: 100px; right: 30px; background: var(--linkedin-blue); color: #fff; width: 60px; height: 60px; border-radius: 50%; text-align: center; line-height: 60px; font-size: 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.2); z-index: 2000; transition: 0.3s; display: flex; align-items: center; justify-content: center; }
         .linkedin-float:hover { transform: scale(1.1); background: #005582; }
 
-        /* ==========================================================
-           YENİ & PROFESYONEL ERİŞİLEBİLİRLİK (A11Y) PANELİ STİLLERİ 
-           ========================================================== */
-        
-        .a11y-widget-btn {
-            position: fixed; bottom: 30px; left: 30px; width: 55px; height: 55px; border-radius: 50%; background: var(--acc-primary); color: #fff; border: 3px solid #fff; font-size: 26px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center; z-index: 9998; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
+        .a11y-widget-btn { position: fixed; bottom: 30px; left: 30px; width: 55px; height: 55px; border-radius: 50%; background: var(--acc-primary); color: #fff; border: 3px solid #fff; font-size: 26px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center; z-index: 9998; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .a11y-widget-btn:hover { transform: scale(1.1); background: var(--primary-dark); }
-
-        .a11y-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 9999; opacity: 0; visibility: hidden; transition: 0.3s;
-        }
+        .a11y-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 9999; opacity: 0; visibility: hidden; transition: 0.3s; }
         .a11y-overlay.active { opacity: 1; visibility: visible; }
-
-        .a11y-panel {
-            position: fixed; top: 0; left: -350px; width: 340px; height: 100vh; background: #fff; z-index: 10000; box-shadow: 5px 0 25px rgba(0,0,0,0.2); transition: left 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); display: flex; flex-direction: column; font-family: 'Roboto', sans-serif;
-        }
+        .a11y-panel { position: fixed; top: 0; left: -350px; width: 340px; height: 100vh; background: #fff; z-index: 10000; box-shadow: 5px 0 25px rgba(0,0,0,0.2); transition: left 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); display: flex; flex-direction: column; font-family: 'Roboto', sans-serif; }
         .a11y-panel.open { left: 0; }
-
         .a11y-header { background: var(--acc-primary); color: white; padding: 20px; display: flex; justify-content: space-between; align-items: center; }
         .a11y-header h3 { margin: 0; font-size: 1.1rem; display: flex; align-items: center; gap: 10px; font-family: inherit; }
         .a11y-close { background: rgba(255,255,255,0.2); border: none; color: white; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
         .a11y-close:hover { background: rgba(255,255,255,0.4); transform: rotate(90deg); }
-
         .a11y-content { padding: 20px; overflow-y: auto; flex-grow: 1; }
         .a11y-section { margin-bottom: 25px; }
         .a11y-section-title { font-size: 0.75rem; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; font-weight: 700; }
-
         .a11y-size-control { display: flex; align-items: center; justify-content: space-between; background: #f1f5f9; border-radius: 50px; padding: 5px; border: 1px solid #e2e8f0; }
         .a11y-size-btn { background: #fff; border: 1px solid #cbd5e1; width: 40px; height: 40px; border-radius: 50%; font-size: 18px; font-weight: bold; color: var(--primary-dark); cursor: pointer; transition: 0.2s; }
         .a11y-size-btn:hover { background: var(--acc-primary); color: #fff; border-color: var(--acc-primary); }
         .a11y-size-label { font-weight: 700; font-size: 1rem; color: var(--primary-dark); }
-
         .a11y-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
         .a11y-btn-item { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 5px; display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; transition: 0.2s; color: var(--text-gray); }
         .a11y-btn-item i { font-size: 1.3rem; color: var(--acc-primary); }
         .a11y-btn-item span { font-size: 0.75rem; text-align: center; font-weight: 500; line-height: 1.2; }
         .a11y-btn-item:hover { background: #f8fafc; border-color: #cbd5e1; }
         .a11y-btn-item.active { background: #eff6ff; border-color: var(--acc-primary); color: var(--acc-primary); box-shadow: inset 0 0 0 1px var(--acc-primary); }
-
         .a11y-footer { padding: 15px 20px; background: #f8fafc; border-top: 1px solid #e2e8f0; }
         .a11y-reset-btn { width: 100%; background: #dc2626; color: white; border: none; padding: 12px; border-radius: 8px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: 0.3s; }
         .a11y-reset-btn:hover { background: #b91c1c; }
@@ -198,7 +175,6 @@
         .a11y-reading-guide { display: none; position: fixed; left: 0; width: 100vw; height: 4px; background: red; pointer-events: none; z-index: 99999; box-shadow: 0 2px 5px rgba(0,0,0,0.5); }
         body.a11y-guide-active .a11y-reading-guide { display: block; }
 
-        /* Modals */
         .cookie-modal, .modal { display: none; position: fixed; z-index: 10001; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); backdrop-filter: blur(5px); justify-content: center; align-items: center; overflow: hidden; }
         .cookie-modal-content, .modal-content { background-color: #fff; padding: 40px; width: 90%; max-width: 700px; border-radius: 8px; position: relative; box-shadow: 0 10px 40px rgba(0,0,0,0.5); max-height: 90vh; overflow-y: auto; }
         .modal-close { color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; position: absolute; right: 20px; top: 10px; border: none; background: none; transition: 0.3s; z-index: 10; }
@@ -451,13 +427,11 @@
     </div>
 
     <script>
-        // --- 1. ORTAK FONKSİYONLAR VE DEĞİŞKENLER ---
         let currentLang = localStorage.getItem('preferredLang') || 'tr';
         let allArticles = [];
         let activeTag = 'all';
         let lastFocusedElement;
 
-        // Çeviri Sözlüğü
         const translationData = {
             tr: {
                 "nav-home": "Anasayfa", "nav-about": "Kurumsal", "nav-services": "Hizmetler", "nav-contact": "İletişim", "nav-call-btn": "<i class='fas fa-phone'></i> Bizi Arayın", "skip-link-text": "Ana İçeriğe Atla", "nav-blog": "Blog",
@@ -493,9 +467,6 @@
             }
         };
 
-        // ==========================================================
-        // YENİ PROFESYONEL ERİŞİLEBİLİRLİK (A11Y) JS FONKSİYONLARI 
-        // ==========================================================
         const a11yPanel = document.getElementById('a11y-panel');
         const a11yOverlay = document.getElementById('a11y-overlay');
         const a11yOpenBtn = document.getElementById('a11y-open-btn');
@@ -634,15 +605,11 @@
         }
 
         window.addEventListener('DOMContentLoaded', loadA11ySettings);
-        // ==========================================================
 
-
-        // --- 2. DİL DEĞİŞTİRME FONKSİYONU ---
         function setLang(lang) {
             currentLang = lang;
             localStorage.setItem('preferredLang', lang);
             
-            // Statik Alanları Güncelle
             const elements = document.querySelectorAll('[id]');
             const selectedLang = translationData[lang] || translationData['tr'];
 
@@ -650,7 +617,6 @@
                 if (selectedLang[el.id]) { el.innerHTML = selectedLang[el.id]; }
             });
 
-            // Yön Ayarı (Arapça RTL)
             if(lang === 'ar') { 
                 document.body.style.direction = "rtl"; 
                 document.body.style.textAlign = "right"; 
@@ -663,31 +629,24 @@
 
             closeMenu();
             
-            // Blog verilerini sayfayı yenilemeden tekrar render et
             if(allArticles.length > 0) {
                 renderFilters();
                 renderArticles();
             }
         }
 
-        // --- 3. BLOG VERİLERİNİ ÇEKME VE LİSTELEME (DİLLİ & HİBRİT SİSTEM) ---
         async function loadAll() {
             try {
-                // Tarayıcı önbelleğini atlamak için cache buster
                 const res = await fetch('articles.json?v=' + Date.now());
                 const data = await res.json();
                 
-                // CMS verileri 'articles' listesi içinde tutar, düz array gelirse diye yedekli yazdık
                 allArticles = Array.isArray(data) ? data : (data.articles || []);
                 
-                // Tarihe göre en yeniden eskiye sırala
                 allArticles.sort((a, b) => new Date(b.date) - new Date(a.date));
                 
-                // CMS'ten gelen virgüllü etiketleri diziye çevir ve otomatik internalId ver
                 allArticles.forEach((a, index) => {
-                    a.internalId = index; // blog-detay.html için CMS'ten bağımsız numara
+                    a.internalId = index; 
                     
-                    // Etiket işlemleri (virgüllü veya array formatında gelebilir)
                     if (a.tags) {
                         if (Array.isArray(a.tags)) {
                             a.tagArray = a.tags;
@@ -739,18 +698,15 @@
             const countText = translationData[currentLang]?.["dynamic-count"] || "Makale Listeleniyor";
 
             grid.innerHTML = filtered.map(a => {
-                // Eski dilli JSON objelerine uyum sağlandı
                 const content = a[currentLang] || a['tr'] || a;
 
                 const title = content.title || "Başlık Yok";
                 const summary = content.summary || (content.body ? content.body.substring(0, 120) + "..." : "");
                 const image = a.image || "logo.png";
                 
-                // Tarihi Türkçe formata çevir
                 const dateObj = a.date ? new Date(a.date) : new Date();
                 const dateStr = dateObj.toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' });
 
-                // Yönlendirme ID'si (Eski id varsa onu, yoksa internalId'yi kullan)
                 const linkId = a.id !== undefined ? a.id : a.internalId;
 
                 return `
@@ -775,7 +731,6 @@
             }
         }
 
-        // --- 4. ARA YÜZ FONKSİYONLARI ---
         function toggleMenu() { 
             const nav = document.getElementById('navLinks');
             const hamburger = document.getElementById('hamburger-btn');
@@ -809,7 +764,6 @@
             if (lastFocusedElement) lastFocusedElement.focus();
         }
 
-        // Çerez Fonksiyonları
         function acceptAllCookies() {
             localStorage.setItem('cookieConsent', 'true');
             document.getElementById('cookie-banner-advanced').style.display = 'none';
@@ -826,7 +780,6 @@
             document.getElementById('cookie-banner-advanced').style.display = 'none';
         }
 
-        // --- 5. SAYFA YÜKLENDİĞİNDE BAŞLAT VE NETLIFY LOGIN KONTROLÜ ---
         window.onload = function() {
             document.getElementById('year').textContent = new Date().getFullYear();
             setLang(currentLang); 
@@ -836,7 +789,6 @@
                 document.getElementById('cookie-banner-advanced').style.display = 'block';
             }
 
-            // CMS Şifre Giriş Yönlendirmesi
             if (window.netlifyIdentity) {
                 window.netlifyIdentity.on("init", user => {
                     if (!user) {
