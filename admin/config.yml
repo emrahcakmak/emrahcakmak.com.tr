@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: emrahcakmak.com.tr
+  repo: emrahcakmak/emrahcakmak.com.tr
   branch: main
 
 media_folder: "images"
