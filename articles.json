@@ -1,0 +1,256 @@
+{
+  "articles": [
+    {
+      "title": "Şahıs Şirketi Nedir? Avantajları ve Dezavantajları",
+      "summary": "Girişimciliğe adım atmanın en hızlı yolu olan şahıs şirketlerinin özellikleri, kuruluş süreçleri ve vergi yükümlülükleri.",
+      "date": "2026-04-05",
+      "image": "blog-posts/01-sahis-sirketi-nedir.jpg",
+      "tags": "şirket kuruluşu, şahıs şirketi",
+      "file": "blog-posts/01-sahis-sirketi-nedir.html",
+      "body": ""
+    },
+    {
+      "title": "2026 Şahıs Şirketi Kurma Maliyeti Ne Kadar?",
+      "summary": "Noter, vergi dairesi, imza beyannamesi ve diğer gider kalemleriyle birlikte güncel maliyet analizi.",
+      "date": "2026-04-04",
+      "image": "blog-posts/02-sahis-sirketi-kurma-maliyeti.jpg",
+      "tags": "maliyet, kuruluş",
+      "file": "blog-posts/02-sahis-sirketi-kurma-maliyeti.html",
+      "body": ""
+    },
+    {
+      "title": "Şahıs Şirketi Kurarken Dikkat Edilmesi Gereken Kritik Noktalar",
+      "summary": "NACE kodu seçiminden adres beyanına kadar, kuruluş aşamasında yapılan hatalardan kaçınma yolları.",
+      "date": "2026-04-03",
+      "image": "blog-posts/03-sahis-sirketi-kurarken-nelere-dikkat-edilmeli.jpg",
+      "tags": "ipuçları, dikkat",
+      "file": "blog-posts/03-sahis-sirketi-kurarken-nelere-dikkat-edilmeli.html",
+      "body": ""
+    },
+    {
+      "title": "Şirket Kurmak İçin Gereken Belgeler ve Adımlar",
+      "summary": "Bürokrasiye boğulmadan, en hızlı ve sade haliyle şirket kuruluşu için hazırlamanız gereken evrak list.",
+      "date": "2026-04-02",
+      "image": "blog-posts/04-sirket-kurmak-icin-gerekenler.jpg",
+      "tags": "belgeler, prosedür",
+      "file": "blog-posts/04-sirket-kurmak-icin-gerekenler.html",
+      "body": ""
+    },
+    {
+      "title": "Anonim Şirket ve Limited Şirket Arasındaki Farklar",
+      "summary": "Sermaye yapısı, ortakların sorumluluğu ve prestij açısından A.Ş. ve LTD şirketlerin karşılaştırmalı analizi.",
+      "date": "2026-04-01",
+      "image": "blog-posts/05-anonim-sirket-ve-limited-sirket-arasindaki-farklar.jpg",
+      "tags": "LTD, A.Ş., karşılaştırma",
+      "file": "blog-posts/05-anonim-sirket-ve-limited-sirket-arasindaki-farklar.html",
+      "body": ""
+    },
+    {
+      "title": "Yansıtma Faturası Nedir? Nasıl Kesilir?",
+      "summary": "Muhasebe süreçlerinde sıkça karşılaşılan yansıtma faturasının mantığı ve kullanım alanları.",
+      "date": "2026-03-31",
+      "image": "blog-posts/06-yansitma-faturasi-nedir.jpg",
+      "tags": "fatura, muhasebe",
+      "file": "blog-posts/06-yansitma-faturasi-nedir.html",
+      "body": ""
+    },
+    {
+      "title": "E-Gider Pusulası Nedir? Hangi Durumlarda Düzenlenir?",
+      "summary": "Vergi mükellefi olmayanlardan alınan mal ve hizmetlerin belgelendirilmesi rehberi.",
+      "date": "2026-03-30",
+      "image": "blog-posts/07-e-gider-pusulasi-nedir.jpg",
+      "tags": "e-belge, gider pusulası",
+      "file": "blog-posts/07-e-gider-pusulasi-nedir.html",
+      "body": ""
+    },
+    {
+      "title": "Influencer Vergi Rehberi: Sosyal Medya Gelirleri",
+      "summary": "Sosyal medya içerik üreticileri için vergi muafiyeti, istisna belgesi ve reklam gelirleri.",
+      "date": "2026-03-29",
+      "image": "blog-posts/08-influencer-nedir.jpg",
+      "tags": "sosyal medya, vergi",
+      "file": "blog-posts/08-influencer-nedir.html",
+      "body": ""
+    },
+    {
+      "title": "Mali Mühür Nedir? e-İmza ile Arasındaki Farklar",
+      "summary": "e-Fatura ve e-Defter süreçlerinde tüzel kişiler için zorunlu olan mali mühür başvurusu ve kullanımı.",
+      "date": "2026-03-28",
+      "image": "blog-posts/09-mali-muhur-nedir.jpg",
+      "tags": "e-imza, mali mühür",
+      "file": "blog-posts/09-mali-muhur-nedir.html",
+      "body": ""
+    },
+    {
+      "title": "E-Ticaret Muhasebesi ve Entegrasyon Süreçleri",
+      "summary": "Pazaryeri satışlarında stok takibi, komisyon faturaları ve otomatik faturalandırma rehberi.",
+      "date": "2026-03-27",
+      "image": "blog-posts/10-e-ticaret-muhasebesi-nedir.jpg",
+      "tags": "e-ticaret, entegrasyon",
+      "file": "blog-posts/10-e-ticaret-muhasebesi-nedir.html",
+      "body": ""
+    },
+    {
+      "title": "Şirket Değerlemesi Nedir? Yöntemleri Nelerdir?",
+      "summary": "Yatırım alma veya şirket satışı öncesinde firmanızın piyasa değerini belirleme teknikleri.",
+      "date": "2026-03-26",
+      "image": "blog-posts/11-sirket-degerlemesi-nedir.jpg",
+      "tags": "finans, değerleme",
+      "file": "blog-posts/11-sirket-degerlemesi-nedir.html",
+      "body": ""
+    },
+    {
+      "title": "Girişimci Kimdir? Başarılı Bir Girişimin Temelleri",
+      "summary": "Sıfırdan iş kurma sürecinde bir girişimcinin sahip olması gereken özellikler ve yol haritası.",
+      "date": "2026-03-25",
+      "image": "blog-posts/12-girisimci-nedir.jpg",
+      "tags": "girişimcilik, kariyer",
+      "file": "blog-posts/12-girisimci-nedir.html",
+      "body": ""
+    },
+    {
+      "title": "Genç Girişimci Bağ-Kur Prim Desteği Güncel Durum",
+      "summary": "18-29 yaş arası girişimciler için sağlanan 1 yıllık prim desteği şartları ve 2026 güncellemeleri.",
+      "date": "2026-03-24",
+      "image": "blog-posts/13-genc-girisimci-bag-kur-prim-destegi-kalkti-mi.jpg",
+      "tags": "teşvik, bağkur",
+      "file": "blog-posts/13-genc-girisimci-bag-kur-prim-destegi-kalkti-mi.html",
+      "body": ""
+    },
+    {
+      "title": "e-Fatura Durum Kodları ve Anlamları",
+      "summary": "Giden faturalarda alınan 1200, 1300 gibi hata kodlarının çözümleri ve anlamları.",
+      "date": "2026-03-23",
+      "image": "blog-posts/14-e-fatura-durum-kodlari-ve-anlamlari.jpg",
+      "tags": "e-fatura, durum kodları",
+      "file": "blog-posts/14-e-fatura-durum-kodlari-ve-anlamlari.html",
+      "body": ""
+    },
+    {
+      "title": "Vergi Teşvikleri Nelerdir? İşletmeniz İçin Kritik Fırsatlar",
+      "summary": "2026 yılında genç girişimcilerden ihracatçılara kadar yararlanabileceğiniz güncel vergi avantajları ve teşvik rehberi.",
+      "date": "2026-03-22",
+      "image": "blog-posts/15-vergi-tesvikleri-nelerdir.jpg",
+      "tags": "vergi, teşvik, yatırım",
+      "file": "blog-posts/15-vergi-tesvikleri-nelerdir.html",
+      "body": ""
+    },
+    {
+      "title": "İngiltere'de Limited Şirket Kurmak: Avantajlar ve Süreç",
+      "summary": "Global pazara açılmak isteyenler için İngiltere'de şirket kuruluşu ve vergi avantajları.",
+      "date": "2026-03-21",
+      "image": "blog-posts/16-ingilterede-limited-sirket-kurmak.jpg",
+      "tags": "yurtdışı, ingiltere",
+      "file": "blog-posts/16-ingilterede-limited-sirket-kurmak.html",
+      "body": ""
+    },
+    {
+      "title": "Kurumsal Kimlik Kılavuzu Nedir?",
+      "summary": "Bir markanın görsel anayasası olan kurumsal kimlik kılavuzunun detayları.",
+      "date": "2026-03-20",
+      "image": "blog-posts/17-kurumsal-kimlik-kilavuzu-nedir.jpg",
+      "tags": "marka, kurumsal",
+      "file": "blog-posts/17-kurumsal-kimlik-kilavuzu-nedir.html",
+      "body": ""
+    },
+    {
+      "title": "Coworking (Ortak Çalışma) Nedir? Vergi Avantajları",
+      "summary": "Geleneksel ofis maliyetlerinden kurtulmak isteyenler için Coworking sistemi.",
+      "date": "2026-03-19",
+      "image": "blog-posts/18-coworking-nedir.jpg",
+      "tags": "ofis, kira",
+      "file": "blog-posts/18-coworking-nedir.html",
+      "body": ""
+    },
+    {
+      "title": "GEKSİS Raporu Nedir? İade Süreçleri",
+      "summary": "Gelir ve Kurumlar Vergisi iade taleplerinin kontrolünü sağlayan GEKSİS sistemi.",
+      "date": "2026-03-18",
+      "image": "blog-posts/19-geksis-raporu-nedir.jpg",
+      "tags": "iade, rapor",
+      "file": "blog-posts/19-geksis-raporu-nedir.html",
+      "body": ""
+    },
+    {
+      "title": "Avukatlık Bürosu Açmak: Vergi ve Maliyetler",
+      "summary": "Serbest avukatlar için ofis açılış süreçleri ve vergisel yükümlülükler.",
+      "date": "2026-03-17",
+      "image": "blog-posts/20-avukatlik-burosu-acmak.jpg",
+      "tags": "avukat, serbest meslek",
+      "file": "blog-posts/20-avukatlik-burosu-acmak.html",
+      "body": ""
+    },
+    {
+      "title": "Teknogirişim Rozeti Nedir? Kimler Alabilir?",
+      "summary": "Teknoloji start-up'larına sağlanan özel statüler ve yatırımcılar nezdindeki önemi.",
+      "date": "2026-03-16",
+      "image": "blog-posts/21-teknogirisim-rozeti-nedir.jpg",
+      "tags": "teknoloji, girişim",
+      "file": "blog-posts/21-teknogirisim-rozeti-nedir.html",
+      "body": ""
+    },
+    {
+      "title": "Holding Nasıl Kurulur? Şartları ve Avantajları",
+      "summary": "Birden fazla şirketi tek çatı altında toplamak isteyenler için holdingleşme süreci.",
+      "date": "2026-03-15",
+      "image": "blog-posts/22-holding-nasil-kurulur.jpg",
+      "tags": "holding, şirketleşme",
+      "file": "blog-posts/22-holding-nasil-kurulur.html",
+      "body": ""
+    },
+    {
+      "title": "SGK Meslek Kodu Nedir? Yanlış Bildirimin Cezası",
+      "summary": "İşverenlerin çalışanları için doğru meslek kodunu seçmesinin önemi.",
+      "date": "2026-03-14",
+      "image": "blog-posts/23-sgk-meslek-kodu-nedir.jpg",
+      "tags": "sgk, ceza",
+      "file": "blog-posts/23-sgk-meslek-kodu-nedir.html",
+      "body": ""
+    },
+    {
+      "title": "Nakit Akışı (Cash Flow) Nedir? Nasıl Yönetilir?",
+      "summary": "İşletmenin sürdürülebilirliği için hayati önem taşıyan nakit akışı yönetimi.",
+      "date": "2026-03-13",
+      "image": "blog-posts/24-nakit-akisi-nedir.jpg",
+      "tags": "finans, nakit",
+      "file": "blog-posts/24-nakit-akisi-nedir.html",
+      "body": ""
+    },
+    {
+      "title": "2026 Demirbaş ve Amortisman Sınırı Ne Kadar?",
+      "summary": "Doğrudan gider yazılabilecek demirbaş sınırı ve amortisman ayırma limitleri.",
+      "date": "2026-03-12",
+      "image": "blog-posts/25-demirbas-ve-amortisman-siniri.jpg",
+      "tags": "gider, amortisman",
+      "file": "blog-posts/25-demirbas-ve-amortisman-siniri.html",
+      "body": ""
+    },
+    {
+      "title": "E-Ticaret Sektöründe Kayıt Dışı Gelirler ve İncelemeler",
+      "summary": "Maliye Bakanlığı'nın e-ticaret üzerindeki denetimleri ve IBAN takibi.",
+      "date": "2026-03-11",
+      "image": "blog-posts/26-e-ticaret-sektorunde-kayit-disi-gelirler.jpg",
+      "tags": "e-ticaret, denetim",
+      "file": "blog-posts/26-e-ticaret-sektorunde-kayit-disi-gelirler.html",
+      "body": ""
+    },
+    {
+      "title": "Bedelsiz İhracat Nedir? Fatura Nasıl Düzenlenir?",
+      "summary": "Numune veya hediye gönderimleri için yapılan bedelsiz ihracat işlemleri.",
+      "date": "2026-03-10",
+      "image": "blog-posts/27-bedelsiz-ihracat-nedir.jpg",
+      "tags": "ihracat, gümrük",
+      "file": "blog-posts/27-bedelsiz-ihracat-nedir.html",
+      "body": ""
+    },
+    {
+      "title": "KOBİ Belgesi Nedir? KOBİ Vasfı Belgesi Nasıl Alınır?",
+      "summary": "2026 güncel limitleri ile KOBİ belgesi alma şartları ve e-Devlet başvuru süreci.",
+      "date": "2026-03-04",
+      "image": "blog-posts/28-kobi-belgesi-nedir.jpg",
+      "tags": "kobi, teşvik, kosgeb",
+      "file": "blog-posts/28-kobi-belgesi-nedir.html",
+      "body": ""
+    }
+  ]
+}
