@@ -20,7 +20,8 @@ collections:
             fields:
               - {label: "Başlık", name: "title", widget: "string"}
               - {label: "Özet (Kısa Açıklama)", name: "summary", widget: "text", required: false}
-              - {label: "Yayın Tarihi", name: "date", widget: "datetime"}
+              - {label: "Yayın Tarihi", name: "date", widget: "datetime", required: false}
               - {label: "Öne Çıkan Görsel", name: "image", widget: "image", required: false}
               - {label: "Etiketler (Virgülle ayırın)", name: "tags", widget: "string", required: false}
-              - {label: "İçerik", name: "body", widget: "markdown"}
+              - {label: "İçerik (Markdown)", name: "body", widget: "markdown", required: false}
+              - {label: "Eski Dosya Yolu (Dokunmayın)", name: "file", widget: "string", required: false}
