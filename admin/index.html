@@ -17,6 +17,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Roboto:wght@300;400;500;700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
 
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
     <style>
         /* --- ANA SAYFA İLE BİREBİR AYNI TEMEL STİLLER --- */
         :root {
@@ -335,7 +337,7 @@
     <header>
         <div class="container navbar">
             <div class="header-left-group">
-                <div class="logo"><a href="index.html" aria-label="Anasayfaya Dön"><img src="logo.png" alt="Emrah Çakmak SMMM Logo" /></a></div>
+                <div class="logo"><a href="https://emrahcakmak.com.tr" aria-label="Anasayfaya Dön"><img src="logo.png" alt="Emrah Çakmak SMMM Logo" /></a></div>
                 <div class="header-cert-logos">
                     <div><img src="ismmmo.png" alt="İSMMMO Üye" /></div>
                     <div><img src="cpa.png" alt="CPA Certified" /></div>
@@ -344,11 +346,11 @@
             <button class="hamburger" id="hamburger-btn" onclick="toggleMenu()" aria-label="Menüyü Aç" aria-expanded="false"><i class="fas fa-bars"></i></button>
             <nav class="nav-links" id="navLinks">
                 <button class="mobile-close" id="mobile-close-btn" onclick="closeMenu()" aria-label="Menüyü Kapat"><i class="fas fa-times"></i></button>
-                <a href="index.html" id="nav-home" onclick="closeMenu()">Anasayfa</a>
-                <a href="index.html#kurumsal" id="nav-about" onclick="closeMenu()">Kurumsal</a>
-                <a href="index.html#hizmetler" id="nav-services" onclick="closeMenu()">Hizmetler</a>
-                <a href="blog.html" class="active" id="nav-blog" onclick="closeMenu()">Blog</a>
-                <a href="index.html#iletisim" id="nav-contact" onclick="closeMenu()">İletişim</a>
+                <a href="https://emrahcakmak.com.tr" id="nav-home" onclick="closeMenu()">Anasayfa</a>
+                <a href="https://emrahcakmak.com.tr/#kurumsal" id="nav-about" onclick="closeMenu()">Kurumsal</a>
+                <a href="https://emrahcakmak.com.tr/#hizmetler" id="nav-services" onclick="closeMenu()">Hizmetler</a>
+                <a href="index.html" class="active" id="nav-blog" onclick="closeMenu()">Blog</a>
+                <a href="https://emrahcakmak.com.tr/#iletisim" id="nav-contact" onclick="closeMenu()">İletişim</a>
                 <a href="tel:+905335429364" class="btn-quote" id="nav-call-btn"><i class="fas fa-phone"></i> Bizi Arayın</a>
             </nav>
         </div>
@@ -381,17 +383,17 @@
             <div class="footer-grid">
                 <div class="footer-col" style="text-align: left;">
                     <div class="footer-logo-container">
-                        <a href="index.html" aria-label="Anasayfaya Dön"><img src="logo.png" alt="Logo" class="footer-logo-img" /></a>
+                        <a href="https://emrahcakmak.com.tr" aria-label="Anasayfaya Dön"><img src="logo.png" alt="Logo" class="footer-logo-img" /></a>
                     </div>
                     <p id="footer-desc">Emrah ÇAKMAK SMMM Bürosu, etik değerlere bağlı, uluslararası standartlarda denetim ve danışmanlık hizmeti sunmaktadır.</p>
                 </div>
                 <div class="footer-col" style="text-align: left;">
                     <h4 id="footer-quick">Hızlı Erişim</h4>
                     <ul>
-                        <li><a href="index.html#kurumsal" id="footer-link-about">Kurumsal</a></li>
-                        <li><a href="index.html#hizmetler" id="footer-link-services">Hizmetler</a></li>
-                        <li><a href="blog.html" id="footer-link-blog">Blog</a></li>
-                        <li><a href="index.html#iletisim" id="footer-link-contact">İletişim</a></li>
+                        <li><a href="https://emrahcakmak.com.tr/#kurumsal" id="footer-link-about">Kurumsal</a></li>
+                        <li><a href="https://emrahcakmak.com.tr/#hizmetler" id="footer-link-services">Hizmetler</a></li>
+                        <li><a href="index.html" id="footer-link-blog">Blog</a></li>
+                        <li><a href="https://emrahcakmak.com.tr/#iletisim" id="footer-link-contact">İletişim</a></li>
                         <li><button onclick="openModal('kvkkModal')" id="footer-link-kvkk" style="background:none; border:none; color:inherit; cursor:pointer; font-family:inherit; font-size:inherit; padding:0; text-align:left;">KVKK Aydınlatma Metni</button></li>
                         <li><button onclick="openModal('privacyModal')" id="footer-link-privacy" style="background:none; border:none; color:inherit; cursor:pointer; font-family:inherit; font-size:inherit; padding:0; text-align:left; margin-top:10px;">Gizlilik Politikası</button></li>
                         <li><button onclick="openCookieSettings()" id="footer-link-cookies" style="background:none; border:none; color:inherit; cursor:pointer; font-family:inherit; font-size:inherit; padding:0; text-align:left; margin-top:10px;">Çerez Ayarları</button></li>
@@ -737,7 +739,7 @@
             const countText = translationData[currentLang]?.["dynamic-count"] || "Makale Listeleniyor";
 
             grid.innerHTML = filtered.map(a => {
-                // BURASI DEĞİŞTİ: Eski dilli JSON objelerine uyum sağlandı
+                // Eski dilli JSON objelerine uyum sağlandı
                 const content = a[currentLang] || a['tr'] || a;
 
                 const title = content.title || "Başlık Yok";
@@ -824,7 +826,7 @@
             document.getElementById('cookie-banner-advanced').style.display = 'none';
         }
 
-        // --- 5. SAYFA YÜKLENDİĞİNDE BAŞLAT ---
+        // --- 5. SAYFA YÜKLENDİĞİNDE BAŞLAT VE NETLIFY LOGIN KONTROLÜ ---
         window.onload = function() {
             document.getElementById('year').textContent = new Date().getFullYear();
             setLang(currentLang); 
@@ -832,6 +834,17 @@
             
             if (!localStorage.getItem('cookieConsent')) {
                 document.getElementById('cookie-banner-advanced').style.display = 'block';
+            }
+
+            // CMS Şifre Giriş Yönlendirmesi
+            if (window.netlifyIdentity) {
+                window.netlifyIdentity.on("init", user => {
+                    if (!user) {
+                        window.netlifyIdentity.on("login", () => {
+                            document.location.href = "/admin/";
+                        });
+                    }
+                });
             }
         };
 
