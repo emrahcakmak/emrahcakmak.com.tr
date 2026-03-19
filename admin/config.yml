@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: emrahcakmak/emrahcakmak.com.tr
   branch: main
 
 media_folder: "images"
@@ -11,7 +12,7 @@ collections:
     files:
       - label: "Makaleler Veritabanı"
         name: "articles"
-        file: "articles.json" # CMS artık doğrudan bu dosyayı düzenleyecek
+        file: "articles.json"
         fields:
           - label: "Makale Listesi"
             name: "articles"
