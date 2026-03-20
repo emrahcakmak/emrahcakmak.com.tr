@@ -97,7 +97,7 @@
         .hamburger { display: none; font-size: 1.5rem; cursor: pointer; color: var(--primary-dark); border: none; background: transparent; }
         .mobile-close { display: none; position: absolute; top: 20px; right: 20px; font-size: 2rem; cursor: pointer; color: var(--primary-dark); z-index: 2001; border: none; background: transparent; }
 
-        /* --- HERO SECTİON --- */
+        /* --- HERO SECTİON (Animasyonlu ve Partiküllü) --- */
         .blog-hero { 
             position: relative; 
             background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), url('https://emrahcakmak.com.tr/blogkapak.jpg') center/cover; 
@@ -164,7 +164,7 @@
         .read-more-btn i { margin-left: 5px; transition: 0.3s; }
         .blog-card:hover .read-more-btn i { transform: translateX(5px); }
 
-        /* --- SAYFALAMA --- */
+        /* --- SAYFALAMA (PAGINATION) --- */
         .pagination { display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 60px; }
         .page-btn { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--border-color); background: var(--bg-card); color: var(--text-main); font-weight: bold; cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center; }
         .page-btn:hover:not(:disabled) { border-color: var(--accent-gold); color: var(--accent-gold); }
@@ -179,7 +179,11 @@
         .btn-li { background-color: var(--linkedin-blue); }
         
         .bottom-actions-left { position: fixed; bottom: 30px; left: 30px; display: flex; flex-direction: column; gap: 12px; z-index: 9999; }
-        .btn-a11y { background: #0f172a; color: var(--accent-gold); border: 2px solid var(--accent-gold); }
+        .btn-a11y { background: #0f172a; color: var(--accent-gold); border: 2px solid var(--accent-gold); transition:0.3s;}
+        body.a11y-high-contrast .btn-a11y { background: #1e293b; color: #cbd5e1; border-color: #334155; }
+        body.a11y-high-contrast .btn-a11y:hover { background: var(--accent-gold); color: #0f172a; }
+        .btn-a11y:hover { transform: scale(1.1); background: var(--accent-gold); color: #0f172a; }
+
         .btn-top { background: var(--accent-gold); color: #0f172a; opacity: 0; visibility: hidden; transform: translateY(20px); transition: 0.3s; }
         .btn-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
 
@@ -219,7 +223,7 @@
         .a11y-reading-guide { display: none; position: fixed; left: 0; width: 100vw; height: 4px; background: red; pointer-events: none; z-index: 99999; box-shadow: 0 2px 5px rgba(0,0,0,0.5); }
         body.a11y-guide-active .a11y-reading-guide { display: block; }
 
-        /* FOOTER & MODALS (ORİJİNAL) */
+        /* ORİJİNAL FOOTER TASARIMI */
         footer { background: #0b1120; color: #94a3b8; padding: 80px 0 30px; font-size: 0.9rem; }
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; margin-bottom: 50px; }
         .footer-col h4 { color: #fff; margin-bottom: 25px; font-size: 1.2rem; font-family: var(--font-heading); }
@@ -231,17 +235,19 @@
         .social-icons a:hover { background: var(--accent-gold); color: #000; transform: translateY(-5px) rotate(360deg); }
         .bottom-bar { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; }
 
-        .modal { display: none; position: fixed; z-index: 10001; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); backdrop-filter: blur(5px); justify-content: center; align-items: center; overflow: hidden; }
-        .modal-content { background-color: var(--bg-card); padding: 40px; width: 90%; max-width: 700px; border-radius: 8px; position: relative; box-shadow: 0 10px 40px rgba(0,0,0,0.5); max-height: 90vh; overflow-y: auto; color:var(--text-main); border:1px solid var(--border-color);}
-        .modal-close { color: var(--text-gray); float: right; font-size: 28px; font-weight: bold; cursor: pointer; position: absolute; right: 20px; top: 10px; border: none; background: none; transition: 0.3s; z-index: 10; }
+        /* ORİJİNAL MODAL STİLLERİ */
+        .cookie-modal, .modal { display: none; position: fixed; z-index: 10001; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); backdrop-filter: blur(5px); justify-content: center; align-items: center; overflow: hidden; }
+        .cookie-modal-content, .modal-content { background-color: #fff; padding: 40px; width: 90%; max-width: 700px; border-radius: 8px; position: relative; box-shadow: 0 10px 40px rgba(0,0,0,0.5); max-height: 90vh; overflow-y: auto; color: #0f172a;}
+        .modal-close { color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; position: absolute; right: 20px; top: 10px; border: none; background: none; transition: 0.3s; z-index: 10; }
         .modal-close:hover { color: var(--accent-gold); transform: rotate(90deg); }
 
-        .cookie-banner-advanced { display:none; position:fixed; bottom:0; left:0; width:100%; background:var(--bg-card); padding:20px; box-shadow:0 -5px 20px rgba(0,0,0,0.1); z-index:10000; text-align:center; border-top: 1px solid var(--border-color); }
-        #cookie-text-adv { margin-bottom:15px; color:var(--text-main); }
+        .cookie-banner-advanced { display:none; position:fixed; bottom:0; left:0; width:100%; background:#fff; padding:20px; box-shadow:0 -5px 20px rgba(0,0,0,0.1); z-index:10000; text-align:center; border-top: 1px solid #e2e8f0; }
+        #cookie-text-adv { margin-bottom:15px; color:#0f172a; }
         #btn-accept-all { background:var(--accent-gold); color:#0f172a; padding:10px 20px; border:none; cursor:pointer; margin-right:10px; border-radius:50px; font-weight:bold;}
-        #btn-cookie-settings { background:var(--bg-body); color:var(--text-main); padding:10px 20px; border:1px solid var(--border-color); cursor:pointer; border-radius:50px; }
+        #btn-cookie-settings { background:#f8fafc; color:#334155; padding:10px 20px; border:1px solid #e2e8f0; cursor:pointer; border-radius:50px; }
         #btn-save-settings { background:var(--accent-gold); color:#0f172a; width:100%; margin-top:10px; padding:15px; border:none; cursor:pointer; font-weight:bold; border-radius: 5px; }
 
+        /* MOBİL UYUM */
         @media (max-width: 992px) {
             .header-cert-logos, .top-bar-flex span { display: none; }
             .blog-hero h1 { font-size: 2.5rem; }
@@ -266,10 +272,10 @@
         <div class="container top-bar-flex">
             <span>Select Language:</span>
             <div class="language-switcher">
-                <button onclick="setLang('tr')" title="Türkçe"><span class="flag-icon flag-icon-tr"></span></button>
-                <button onclick="setLang('en')" title="English (UK)"><span class="flag-icon flag-icon-gb"></span></button>
-                <button onclick="setLang('ar')" title="Arabic (UAE)"><span class="flag-icon flag-icon-ae"></span></button>
-                <button onclick="setLang('ru')" title="Russian"><span class="flag-icon flag-icon-ru"></span></button>
+                <button onclick="setLang('tr')" title="Türkçe" aria-label="Türkçe Dil Seçeneği"><span class="flag-icon flag-icon-tr"></span></button>
+                <button onclick="setLang('en')" title="English (UK)" aria-label="English Language Option"><span class="flag-icon flag-icon-gb"></span></button>
+                <button onclick="setLang('ar')" title="Arabic (UAE)" aria-label="Arabic Language Option"><span class="flag-icon flag-icon-ae"></span></button>
+                <button onclick="setLang('ru')" title="Russian" aria-label="Russian Language Option"><span class="flag-icon flag-icon-ru"></span></button>
             </div>
             <button class="theme-toggle-btn" id="header-theme-toggle" onclick="toggleDarkMode()" aria-label="Temayı Değiştir">
                 <i class="fas fa-moon" id="theme-icon"></i>
@@ -335,7 +341,7 @@
         <section class="blog-section">
             <div class="container">
                 <div class="blog-grid" id="blog-grid">
-                    <div style="text-align: center; width:100%; grid-column: 1 / -1;"><i class="fas fa-spinner fa-spin fa-3x" style="color:var(--accent-gold)"></i></div>
+                    <div style="text-align: center; width:100%; grid-column: 1 / -1;"><i class="fas fa-spinner fa-spin fa-2x"></i> Yükleniyor...</div>
                 </div>
                 <div class="pagination" id="pagination"></div>
             </div>
@@ -409,24 +415,30 @@
     <footer>
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-col">
-                    <div class="footer-logo-container"><a href="https://emrahcakmak.com.tr"><img src="https://emrahcakmak.com.tr/logo.png" id="footer-logo" alt="Logo" class="footer-logo-img" /></a></div>
+                <div class="footer-col" style="text-align: left;">
+                    <div class="footer-logo-container">
+                        <a href="https://emrahcakmak.com.tr" aria-label="Anasayfaya Dön"><img src="https://emrahcakmak.com.tr/logo.png" id="footer-logo" alt="Logo" class="footer-logo-img" /></a>
+                    </div>
                     <p id="footer-desc">Emrah ÇAKMAK SMMM Bürosu, etik değerlere bağlı, uluslararası standartlarda denetim ve danışmanlık hizmeti sunmaktadır.</p>
                 </div>
-                <div class="footer-col">
+                <div class="footer-col" style="text-align: left;">
                     <h4 id="footer-quick">Hızlı Erişim</h4>
                     <ul>
-                        <li><a href="https://emrahcakmak.com.tr/#kurumsal">Kurumsal</a></li>
-                        <li><a href="index.html">Blog</a></li>
-                        <li><button onclick="openModal('kvkkModal')" style="background:none; border:none; color:inherit; cursor:pointer; padding:0; text-align:left;">KVKK Aydınlatma Metni</button></li>
-                        <li><button onclick="openModal('privacyModal')" style="background:none; border:none; color:inherit; cursor:pointer; padding:0; text-align:left; margin-top:10px;">Gizlilik Politikası</button></li>
+                        <li><a href="https://emrahcakmak.com.tr/#kurumsal" id="footer-link-about">Kurumsal</a></li>
+                        <li><a href="https://emrahcakmak.com.tr/#hizmetler" id="footer-link-services">Hizmetler</a></li>
+                        <li><a href="index.html" id="footer-link-blog">Blog</a></li>
+                        <li><a href="https://emrahcakmak.com.tr/#iletisim" id="footer-link-contact">İletişim</a></li>
+                        <li><button onclick="openModal('kvkkModal')" id="footer-link-kvkk" style="background:none; border:none; color:inherit; cursor:pointer; font-family:inherit; font-size:inherit; padding:0; text-align:left;">KVKK Aydınlatma Metni</button></li>
+                        <li><button onclick="openModal('privacyModal')" id="footer-link-privacy" style="background:none; border:none; color:inherit; cursor:pointer; font-family:inherit; font-size:inherit; padding:0; text-align:left; margin-top:10px;">Gizlilik Politikası</button></li>
+                        <li><button onclick="openCookieSettings()" id="footer-link-cookies" style="background:none; border:none; color:inherit; cursor:pointer; font-family:inherit; font-size:inherit; padding:0; text-align:left; margin-top:10px;">Çerez Ayarları</button></li>
                     </ul>
                 </div>
-                <div class="footer-col">
+                <div class="footer-col" style="text-align: left;">
                     <h4 id="footer-follow">Bizi Takip Edin</h4>
                     <div class="social-icons">
-                        <a href="https://x.com/ecmusavirlik" target="_blank"><i class="fa-brands fa-x-twitter"></i></a> 
-                        <a href="https://www.linkedin.com/company/emrahçakmak/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a> 
+                        <a href="https://x.com/ecmusavirlik" target="_blank" rel="noopener" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a> 
+                        <a href="https://www.linkedin.com/company/emrahçakmak/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a> 
+                        <a href="https://wa.me/905335429364" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
                     </div>
                 </div>
             </div>
@@ -436,10 +448,10 @@
         </div>
     </footer>
 
-    <div id="cookie-banner-advanced" class="cookie-banner-advanced">
-        <p id="cookie-text-adv">Web sitemizde en iyi deneyimi sunabilmek için çerezler kullanılmaktadır.</p>
-        <button onclick="acceptAllCookies()" id="btn-accept-all">Hepsini Kabul Et</button>
-        <button onclick="openCookieSettings()" id="btn-cookie-settings">Ayarlar</button>
+    <div id="cookie-banner-advanced" class="cookie-banner-advanced" style="display:none; position:fixed; bottom:0; left:0; width:100%; background:#fff; padding:20px; box-shadow:0 -5px 20px rgba(0,0,0,0.1); z-index:10000; text-align:center;">
+        <p id="cookie-text-adv" style="margin-bottom:15px; color:#0f172a;">Web sitemizde en iyi deneyimi sunabilmek için çerezler kullanılmaktadır.</p>
+        <button onclick="acceptAllCookies()" id="btn-accept-all" style="background:var(--accent-gold); color:#0f172a; padding:10px 20px; border:none; cursor:pointer; margin-right:10px; border-radius:50px; font-weight:bold;">Hepsini Kabul Et</button>
+        <button onclick="openCookieSettings()" id="btn-cookie-settings" style="background:#f8fafc; color:#334155; padding:10px 20px; border:1px solid #e2e8f0; cursor:pointer; border-radius:50px;">Ayarlar</button>
     </div>
     
     <div id="cookie-settings-modal" class="cookie-modal" role="dialog" aria-modal="true">
@@ -447,7 +459,7 @@
             <button class="modal-close" onclick="closeCookieSettings()" aria-label="Kapat">×</button>
             <h3 id="cookie-modal-title">Çerez Tercihleri</h3>
             <p id="cookie-modal-desc" class="cookie-modal-desc">Sitemizin temel işlevlerini sağlamak için zorunlu çerezler kullanılmaktadır.</p>
-            <button onclick="saveCookieSettings()" id="btn-save-settings">Kaydet ve Çık</button>
+            <button onclick="saveCookieSettings()" id="btn-save-settings" style="background:var(--accent-gold); color:#0f172a; width:100%; margin-top:10px; padding:15px; border:none; cursor:pointer; font-weight:bold; border-radius: 5px;">Kaydet ve Çık</button>
         </div>
     </div>
 
@@ -476,25 +488,28 @@
     </div>
 
     <script>
-        let currentLang = localStorage.getItem('preferredLang') || 'tr';
-        let allArticles = [];
-        let filteredArticles = [];
-        let searchQuery = '';
-        let currentPage = 1;
-        const itemsPerPage = 9;
+        const urlParams = new URLSearchParams(window.location.search);
+        const articleId = urlParams.get('id');
+        let currentLang = urlParams.get('lang') || localStorage.getItem('preferredLang') || 'tr';
+        let lastFocusedElement;
 
         const translationData = {
             tr: {
+                "nav-home": "Anasayfa", "nav-about": "Kurumsal", "nav-services": "Hizmetler", "nav-contact": "İletişim", "nav-call-btn": "<i class='fas fa-phone'></i> Bizi Arayın", "skip-link-text": "Ana İçeriğe Atla", "nav-blog": "Blog",
                 "blog-hero-title": "Bilgi Merkezi", "blog-hero-desc": "Mali süreçler, güncel mevzuat ve iş dünyası üzerine uzman görüşleri.",
                 "stat-label-1": "Yayınlanan Makale", "stat-label-2": "Aylık Okur",
                 "dynamic-count": "Makale Listeleniyor", "dynamic-read": "Okumaya Başla",
-                "search-placeholder": "Makalelerde ara...", "no-results": "Aradığınız kritere uygun makale bulunamadı.", "read-time-suffix": "dk okuma"
+                "search-placeholder": "Makalelerde ara...", "no-results": "Aradığınız kritere uygun makale bulunamadı.", "read-time-suffix": "dk okuma",
+                "footer-desc": "Emrah ÇAKMAK SMMM Bürosu, etik değerlere bağlı, uluslararası standartlarda denetim ve danışmanlık hizmeti sunmaktadır.", "footer-quick": "Hızlı Erişim", "footer-follow": "Bizi Takip Edin", "footer-link-about": "Kurumsal", "footer-link-services": "Hizmetler", "footer-link-contact": "İletişim", "footer-link-kvkk": "KVKK Aydınlatma Metni", "footer-link-privacy": "Gizlilik Politikası", "footer-link-cookies": "Çerez Ayarları", "footer-copyright": "Emrah ÇAKMAK Global Financial Consultancy. Tüm Hakları Saklıdır.", "footer-link-blog": "Blog",
+                "cookie-text-adv": "Web sitemizde en iyi deneyimi sunabilmek için çerezler kullanılmaktadır."
             },
             en: {
+                "nav-home": "Home", "nav-about": "About", "nav-services": "Services", "nav-contact": "Contact", "nav-call-btn": "<i class='fas fa-phone'></i> Call Us", "skip-link-text": "Skip to Main Content", "nav-blog": "Blog",
                 "blog-hero-title": "Knowledge Center", "blog-hero-desc": "Expert opinions on financial processes, current legislation, and the business world.",
                 "stat-label-1": "Published Articles", "stat-label-2": "Monthly Readers",
                 "dynamic-count": "Articles Listed", "dynamic-read": "Start Reading",
-                "search-placeholder": "Search articles...", "no-results": "No articles found matching your criteria.", "read-time-suffix": "min read"
+                "search-placeholder": "Search articles...", "no-results": "No articles found matching your criteria.", "read-time-suffix": "min read",
+                "footer-desc": "Emrah ÇAKMAK CPA Office provides audit and consultancy services in international standards.", "footer-quick": "Quick Links", "footer-follow": "Follow Us", "footer-link-about": "About", "footer-link-services": "Services", "footer-link-contact": "Contact", "footer-link-kvkk": "PDPL Text", "footer-link-privacy": "Privacy Policy", "footer-link-cookies": "Cookie Settings", "footer-copyright": "Emrah ÇAKMAK Global Financial Consultancy. All Rights Reserved.", "footer-link-blog": "Blog"
             }
         };
 
@@ -571,14 +586,12 @@
                 const res = await fetch('articles.json?v=' + Date.now());
                 const data = await res.json();
                 
-                // Güvenli dizi ataması
                 allArticles = Array.isArray(data) ? data : (data.articles || []);
                 if(!Array.isArray(allArticles)) {
                     for(let key in data) { if(Array.isArray(data[key])) { allArticles = data[key]; break; } }
                 }
                 if(!Array.isArray(allArticles)) allArticles = [];
                 
-                // Güvenli Tarih Sıralaması
                 allArticles.sort((a, b) => {
                     const dateA = new Date(a.date);
                     const dateB = new Date(b.date);
@@ -592,7 +605,6 @@
                         else if (typeof a.tags === 'string') { a.tagArray = a.tags.split(',').map(t => t.trim()).filter(t => t !== ""); }
                     } else { a.tagArray = []; }
 
-                    // Güvenli okuma süresi
                     const rawContent = String(a.body || (a.tr && a.tr.body) || "");
                     const wordCount = rawContent.split(/\s+/).length;
                     a.readTime = Math.ceil(wordCount / 200) || 1;
@@ -603,7 +615,7 @@
                 
             } catch (e) {
                 console.error("Yükleme Hatası: ", e);
-                document.getElementById('blog-grid').innerHTML = `<p style='text-align:center; color:#e11d48; width:100%; grid-column:1/-1;'>Veriler yüklenemedi. Lütfen JSON formatınızı kontrol edin. <br><small>${e.message}</small></p>`;
+                document.getElementById('blog-grid').innerHTML = `<p style='text-align:center; color:#e11d48; width:100%; grid-column:1/-1;'>Veriler yüklenemedi. Lütfen JSON formatınızı kontrol edin.</p>`;
             }
         }
 
@@ -793,14 +805,20 @@
             document.getElementById('a11y-size-indicator').innerText = currentFontSize + "%";
             localStorage.setItem('a11y-fontsize', currentFontSize);
         }
-        function a11yToggleClass(c, btn) { 
+        function a11yToggleClass(c, btn, conflicts = []) { 
             const isActive = document.body.classList.toggle(c);
+            conflicts.forEach(conflict => {
+                document.body.classList.remove(conflict);
+                if(document.getElementById(conflict.replace('a11y-', 'btn-a11y-'))) {
+                     document.getElementById(conflict.replace('a11y-', 'btn-a11y-')).classList.remove('active');
+                }
+            });
             if(document.getElementById(btn)) document.getElementById(btn).classList.toggle('active', isActive); 
         }
         function a11yResetAll() {
             currentFontSize = 100; document.body.style.fontSize = "100%"; document.getElementById('a11y-size-indicator').innerText = "100%"; localStorage.setItem('a11y-fontsize', 100);
             const classesToRemove = ['a11y-high-contrast', 'a11y-light-bg', 'a11y-grayscale', 'a11y-dyslexic', 'a11y-text-spaced', 'a11y-highlight-links', 'a11y-hide-images', 'a11y-guide-active', 'a11y-mask-active'];
-            classesToRemove.forEach(c => { document.body.classList.remove(c); localStorage.removeItem(c); });
+            classesToRemove.forEach(c => { document.body.classList.remove(c); });
             document.querySelectorAll('.a11y-btn-item').forEach(btn => btn.classList.remove('active'));
             document.getElementById('theme-icon').className = 'fas fa-moon';
             updateLogos(false);
@@ -827,7 +845,7 @@
             }
         };
 
-        // ESC ile Modalları ve Panelleri kapatma
+        // ESC ile Modalları ve Panelleri kapatma 
         document.addEventListener('keydown', function(event){
             if(event.key === "Escape"){
                 document.querySelectorAll('.modal').forEach(m => m.style.display = 'none');
