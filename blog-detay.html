@@ -18,8 +18,6 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
@@ -48,13 +46,12 @@
             --linkedin-blue: #0077b5;
             --twitter-black: #000000;
             --font-heading: 'Playfair Display', serif;
-            --font-body: 'Roboto', 'Tajawal', sans-serif;
-            --acc-primary: #0f172a; 
+            --font-body: 'Roboto', sans-serif;
             --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
             --shadow-lg: 0 10px 30px -3px rgba(0, 0, 0, 0.1);
         }
 
-        /* DARK MODE (a11y-high-contrast sınıfı ile entegre) */
+        /* DARK MODE (Karanlık Mod Entegrasyonu) */
         body.a11y-high-contrast {
             --primary-dark: #f8fafc;
             --primary-blue: #cbd5e1;
@@ -69,55 +66,56 @@
             --quote-bg: #0b1120;
             --inline-code-bg: #334155;
             --inline-code-text: #fca5a5;
-            
             --shadow-lg: 0 10px 30px -3px rgba(0, 0, 0, 0.5);
-            --light-bg: #0f172a;
         }
 
         * { box-sizing: border-box; scroll-behavior: smooth; }
-
-        body { font-family: var(--font-body); margin: 0; padding: 0; color: var(--text-main); background-color: var(--bg-body); line-height: 1.7; overflow-x: hidden; font-size: 16px; transition: background-color 0.4s, color 0.4s; }
-        :focus-visible { outline: 3px solid var(--accent-gold); outline-offset: 3px; border-radius: 4px; }
+        body { font-family: var(--font-body); margin: 0; padding: 0; color: var(--text-main); background-color: var(--bg-body); line-height: 1.7; transition: background-color 0.4s, color 0.4s; overflow-x: hidden; font-size: 16px; }
         a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
         ul { list-style: none; padding: 0; margin: 0; }
-        img { max-width: 100%; height: auto; display: block; transition: transform 0.5s ease; }
+        img { max-width: 100%; height: auto; display: block; }
         h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); font-weight: 700; margin-top: 0; letter-spacing: -0.5px; }
 
-        /* OKUMA İLERLEME ÇUBUĞU */
-        #reading-progress { position: fixed; top: 0; left: 0; width: 0%; height: 4px; background: var(--accent-gold); z-index: 100000; transition: width 0.1s ease; }
+        :focus-visible { outline: 3px solid var(--accent-gold); outline-offset: 3px; border-radius: 4px; }
+        .skip-link:focus { position: static !important; }
 
-        .top-bar { background: #0f172a; color: #94a3b8; font-size: 0.85rem; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .container { max-width: 1200px; margin: auto; padding: 0 20px; }
+        /* YUKARIDAN AŞAĞI DOLAN OKUMA ÇUBUĞU */
+        #reading-progress { position: fixed; top: 0; left: 0; width: 0%; height: 4px; background: var(--accent-gold); z-index: 100000; transition: width 0.2s ease-out; }
+
+        /* HEADER & TOP BAR */
+        .top-bar { background: #0f172a; color: #94a3b8; font-size: 0.85rem; padding: 10px 0; }
+        .container { max-width: 1240px; margin: auto; padding: 0 20px; }
         .top-bar-flex { display: flex; justify-content: flex-end; align-items: center; gap: 15px; }
         
         .theme-toggle-btn { background: none; border: none; color: var(--accent-gold); font-size: 1.2rem; cursor: pointer; transition: 0.3s; padding: 0; }
         .theme-toggle-btn:hover { transform: rotate(30deg) scale(1.1); }
-
+        
         .language-switcher button { background: none; border: none; cursor: pointer; padding: 5px; margin-left: 5px; transition: transform 0.3s; }
         .language-switcher button:hover { transform: scale(1.2); }
-        .language-switcher .flag-icon { font-size: 1.3rem; border-radius: 2px; box-shadow: 0 2px 5px rgba(0,0,0,0.3); }
+        .language-switcher .flag-icon { font-size: 1.2rem; border-radius: 2px; }
 
-        header { background: var(--bg-card); box-shadow: var(--shadow-sm); position: sticky; top: 0; z-index: 1000; transition: 0.4s; }
+        header { background: var(--bg-card); box-shadow: var(--shadow-sm); position: sticky; top: 0; z-index: 1000; transition: 0.4s; border-bottom: 1px solid var(--border-color); }
         .navbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; }
-        .header-left-group { display: flex; align-items: center; gap: 25px; }
-        .logo img { height: 65px; transition: transform 0.3s; }
+        .logo img { height: 60px; transition: 0.3s; }
         .logo:hover img { transform: scale(1.05); }
+        .header-left-group { display: flex; align-items: center; gap: 25px; }
         .header-cert-logos { display: flex; gap: 10px; }
-        .header-cert-logos div { background: #fff; padding: 4px; border-radius: 3px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .header-cert-logos div { background: #fff; padding: 4px; border-radius: 3px; box-shadow: var(--shadow-sm); }
         .header-cert-logos img { height: 45px; width: auto; display: block; }
 
         .nav-links { display: flex; gap: 30px; align-items: center; }
-        .nav-links a { font-weight: 500; color: var(--primary-blue); text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; position: relative; padding-bottom: 5px; transition: 0.3s; }
-        .nav-links a::after { content: ''; display: block; width: 0; height: 2px; background: var(--accent-gold); transition: width 0.3s; margin-top: 3px; position: absolute; bottom: 0; left: 0; }
+        .nav-links a { font-weight: 500; font-size: 0.85rem; text-transform: uppercase; position: relative; padding-bottom: 5px; color: var(--primary-blue); transition: 0.3s; }
+        .nav-links a::after { content: ''; position: absolute; width: 0; height: 2px; background: var(--accent-gold); bottom: 0; left: 0; transition: 0.3s; }
         .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
         .nav-links a:hover, .nav-links a.active { color: var(--accent-gold); }
 
-        .btn-quote { background: linear-gradient(135deg, #0f172a 0%, #2c3e50 100%); color: var(--white) !important; padding: 12px 30px; border-radius: 50px; font-size: 0.9rem; letter-spacing: 0.5px; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 10px; white-space: nowrap; }
+        .btn-quote { background: linear-gradient(135deg, #0f172a 0%, #2c3e50 100%); color: #fff !important; padding: 12px 30px; border-radius: 50px; font-size: 0.9rem; letter-spacing: 0.5px; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 10px; white-space: nowrap; }
         .btn-quote:hover { background: var(--accent-gold); color: #000 !important; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(197, 160, 89, 0.4); }
 
         .hamburger { display: none; font-size: 1.5rem; cursor: pointer; color: var(--primary-dark); border: none; background: transparent; }
         .mobile-close { display: none; position: absolute; top: 20px; right: 20px; font-size: 2rem; cursor: pointer; color: var(--primary-dark); z-index: 2001; border: none; background: transparent; }
 
+        /* --- HERO SECTİON --- */
         .article-hero { position: relative; background-size: cover; background-position: center; background-repeat: no-repeat; padding: 120px 20px; text-align: center; color: #fff; min-height: 50vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
         .article-hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(15,23,42,0.7), rgba(15,23,42,0.95)); z-index: 1; }
         .article-hero-content { position: relative; z-index: 2; max-width: 900px; }
@@ -134,9 +132,11 @@
         .article-meta { display: flex; justify-content: center; gap: 20px; font-size: 0.95rem; color: #cbd5e1; font-weight: 500; flex-wrap: wrap; }
         .article-meta i { color: var(--accent-gold); margin-right: 5px; }
 
-        /* --- ANA İÇERİK --- */
-        .main-layout { display: grid; grid-template-columns: 2.5fr 1fr; gap: 60px; padding: 60px 20px; align-items: start; }
+        /* --- ANA İÇERİK DÜZENİ VE STICKY SIDEBAR ÇÖZÜMÜ --- */
+        /* HATA ÇÖZÜMÜ 1: align-items: start kaldırıldı. Böylece sağ ve sol sütun eşit boyda uzar */
+        .main-layout { display: grid; grid-template-columns: 2.5fr 1fr; gap: 60px; padding: 60px 20px; }
         
+        /* Markdown Stilleri */
         #article-body { font-size: 1.15rem; color: var(--text-main); line-height: 1.8; word-wrap: break-word; background: var(--bg-card); padding: 40px; border-radius: 12px; box-shadow: var(--shadow-sm); border: 1px solid var(--border-color); }
         #article-body h2 { border-left: 5px solid var(--accent-gold); padding-left: 20px; margin: 50px 0 25px; font-size: 2.2rem; color: var(--primary-blue); }
         #article-body h3 { margin: 40px 0 20px; font-size: 1.6rem; color: var(--primary-dark); }
@@ -144,7 +144,7 @@
         #article-body ul, #article-body ol { margin-bottom: 25px; padding-left: 25px; }
         #article-body li { margin-bottom: 10px; }
         #article-body img { max-width: 100%; height: auto; border-radius: 12px; margin: 30px 0; box-shadow: var(--shadow-sm); }
-        #article-body blockquote { font-style: italic; font-size: 1.3rem; border-left: 4px solid var(--accent-gold); padding: 20px 30px; background: var(--quote-bg); margin: 40px 0; color: var(--text-gray); border-radius: 0 8px 8px 0; box-shadow: 5px 5px 15px rgba(0,0,0,0.05); }
+        #article-body blockquote { font-style: italic; font-size: 1.3rem; border-left: 4px solid var(--accent-gold); padding: 20px 30px; background: var(--quote-bg); margin: 40px 0; color: var(--text-gray); border-radius: 0 8px 8px 0; }
         #article-body table { width: 100%; border-collapse: collapse; margin: 30px 0; font-size: 1rem; background: var(--bg-card); border-radius: 8px; overflow: hidden; }
         #article-body th, #article-body td { border: 1px solid var(--border-color); padding: 15px; text-align: left; }
         #article-body th { background: var(--table-th-bg); color: var(--table-th-text); font-family: var(--font-heading); font-size: 1.1rem; letter-spacing: 1px; }
@@ -162,19 +162,19 @@
         .nav-label i { color: var(--accent-gold); }
         .nav-title { font-size: 1.1rem; font-family: var(--font-heading); color: var(--primary-dark); font-weight: 700; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 
-        /* --- SAĞ SİDEBAR (STİCKY - AŞAĞI İNEN) --- */
-        .sidebar { position: relative; }
+        /* SAĞ SİDEBAR STİCKY KONTROLÜ */
+        .sidebar { position: relative; height: 100%; } 
         .sidebar-sticky-wrapper {
             position: sticky;
-            top: 120px; /* Ekranda aşağı indikçe header'ın altında duracağı mesafe */
-            max-height: calc(100vh - 140px); /* Ekrana sığması için hesap */
-            overflow-y: auto; /* Kendi içinde kaydırma çubuğu */
+            top: 100px; /* Aşağı indikçe menünün ekranda tutunacağı mesafe */
+            max-height: calc(100vh - 120px); /* İçerik ekrana sığmazsa kaydırma çıkar */
+            overflow-y: auto; 
             display: flex;
             flex-direction: column;
-            gap: 25px;
-            padding-right: 5px;
+            gap: 25px; 
+            padding-right: 5px; 
         }
-
+        
         .sidebar-sticky-wrapper::-webkit-scrollbar { width: 5px; }
         .sidebar-sticky-wrapper::-webkit-scrollbar-track { background: transparent; }
         .sidebar-sticky-wrapper::-webkit-scrollbar-thumb { background: var(--accent-gold); border-radius: 10px; }
@@ -202,10 +202,10 @@
         .recent-post-info span { font-size: 0.75rem; color: var(--text-gray); display: block; }
         .recent-post-info span i { color: var(--accent-gold); margin-right: 4px; }
 
-        /* --- SOL ORTA: YÜZEN PAYLAŞIM BARI --- */
+        /* --- SOL ORTA: MAKALEYİ PAYLAŞ BARI --- */
         .share-widget-container { position: fixed; top: 50%; left: 15px; transform: translateY(-50%); z-index: 1000; display: flex; flex-direction: column; align-items: center; gap: 10px; }
         .f-share-toggle { width: 50px; height: 50px; border-radius: 50%; background: #0f172a; color: #fff; border: 3px solid #fff; cursor: pointer; font-size: 1.2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.15); display: flex; align-items: center; justify-content: center; transition: all 0.4s ease; z-index: 2; }
-        .f-share-toggle:hover { background: var(--accent-gold); }
+        .f-share-toggle:hover { background: var(--accent-gold); color: #000; border-color: var(--accent-gold);}
         .floating-share-bar { display: flex; flex-direction: column; gap: 10px; background: var(--bg-card); padding: 15px 8px; border-radius: 50px; box-shadow: var(--shadow-lg); border: 1px solid var(--border-color); opacity: 0; visibility: hidden; transform: translateY(-20px); transition: all 0.4s ease; z-index: 1; }
         .floating-share-bar.show { opacity: 1; visibility: visible; transform: translateY(0); }
         .f-share-btn { width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; border: none; cursor: pointer; transition: 0.3s; font-size: 1.1rem; text-decoration: none;}
@@ -215,10 +215,18 @@
         .f-share-btn.cp { background: #0f172a; }
         .f-share-btn:hover { transform: scale(1.1); box-shadow: 0 8px 20px rgba(0,0,0,0.2); color: #fff; }
 
-        /* --- SOL ALT VE SAĞ ALT --- */
+        /* HATA ÇÖZÜMÜ 2: WhatsApp ve LinkedIn Sağ Alt Butonları Geri Döndü */
+        .bottom-actions-right { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 12px; z-index: 9999; }
+        .action-btn { width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #ffffff !important; font-size: 24px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: 0.3s; text-decoration: none; border:none; cursor:pointer;}
+        .action-btn:hover { transform: scale(1.1); }
+        .btn-wa { background-color: var(--whatsapp-green); }
+        .btn-li { background-color: var(--linkedin-blue); }
+
+        /* --- SOL ALT BUTONLAR (Erişilebilirlik ve Yukarı Çık) --- */
         .bottom-actions-left { position: fixed; bottom: 30px; left: 30px; display: flex; flex-direction: column; gap: 12px; z-index: 9999; }
+        
         .btn-a11y { background: #0f172a; color: var(--accent-gold); border: 2px solid var(--accent-gold); width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: 0.3s; }
-        body.a11y-high-contrast .btn-a11y { background: #1e293b; color: #cbd5e1; border-color: #334155; }
+        body.a11y-high-contrast .btn-a11y { background: #1e293b; color: #cbd5e1; border-color: #334155; } /* Parlamayı önleyici koyu ton */
         body.a11y-high-contrast .btn-a11y:hover { background: var(--accent-gold); color: #0f172a; }
         .btn-a11y:hover { transform: scale(1.1); background: var(--accent-gold); color: #0f172a; }
         
@@ -263,7 +271,7 @@
         .a11y-reading-guide { display: none; position: fixed; left: 0; width: 100vw; height: 4px; background: red; pointer-events: none; z-index: 99999; box-shadow: 0 2px 5px rgba(0,0,0,0.5); }
         body.a11y-guide-active .a11y-reading-guide { display: block; }
 
-        /* FOOTER & MODALS (Orijinal) */
+        /* --- FOOTER TASARIMI --- */
         footer { background: #0b1120; color: #94a3b8; padding: 80px 0 30px; font-size: 0.9rem; }
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; margin-bottom: 50px; }
         .footer-col h4 { color: #fff; margin-bottom: 25px; font-size: 1.2rem; font-family: var(--font-heading); }
@@ -275,12 +283,13 @@
         .social-icons a:hover { background: var(--accent-gold); color: #000; transform: translateY(-5px) rotate(360deg); }
         .bottom-bar { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; }
 
-        .modal { display: none; position: fixed; z-index: 10001; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); backdrop-filter: blur(5px); justify-content: center; align-items: center; overflow: hidden; }
-        .modal-content { background-color: var(--bg-card); padding: 40px; width: 90%; max-width: 700px; border-radius: 8px; position: relative; box-shadow: var(--shadow-lg); max-height: 90vh; overflow-y: auto; color: var(--text-main); border: 1px solid var(--border-color); }
+        /* HATA ÇÖZÜMÜ 3: "Kaydet Çık" Modalı Altta Gözükmesin Diye Z-Index Kilitlendi */
+        .cookie-modal, .modal { display: none; position: fixed; z-index: 100000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); backdrop-filter: blur(5px); justify-content: center; align-items: center; overflow: hidden; }
+        .cookie-modal-content, .modal-content { background-color: var(--bg-card); padding: 40px; width: 90%; max-width: 700px; border-radius: 12px; position: relative; box-shadow: var(--shadow-lg); max-height: 90vh; overflow-y: auto; color: var(--text-main); border: 1px solid var(--border-color); }
         .modal-close { color: var(--text-gray); float: right; font-size: 28px; font-weight: bold; cursor: pointer; position: absolute; right: 20px; top: 10px; border: none; background: none; transition: 0.3s; z-index: 10; }
         .modal-close:hover { color: #ef4444; transform: rotate(90deg); }
 
-        .cookie-banner-advanced { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: var(--bg-card); padding: 20px; box-shadow: 0 -5px 20px rgba(0,0,0,0.1); z-index: 10000; text-align: center; border-top: 1px solid var(--border-color); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+        .cookie-banner-advanced { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: var(--bg-card); padding: 20px; box-shadow: 0 -5px 20px rgba(0,0,0,0.1); z-index: 99999; text-align: center; border-top: 1px solid var(--border-color); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
         #cookie-text-adv { margin-bottom: 15px; color: var(--text-main); font-weight: 500; }
         #btn-accept-all { background: var(--accent-gold); color: #0f172a; padding: 10px 25px; border: none; cursor: pointer; margin-right: 10px; border-radius: 50px; font-weight: bold; transition: 0.3s; }
         #btn-accept-all:hover { transform: scale(1.05); }
@@ -289,12 +298,11 @@
         #btn-save-settings { background: var(--accent-gold); color: #0f172a; width: 100%; margin-top: 20px; padding: 15px; border: none; cursor: pointer; font-weight: bold; border-radius: 8px; transition: 0.3s; font-size: 1rem; }
         #btn-save-settings:hover { background: #eab308; }
 
+        /* MOBİL UYUM */
         @media (max-width: 992px) {
             .header-cert-logos, .top-bar-flex span { display: none; }
-            .blog-hero h1 { font-size: 2.5rem; }
-            .footer-grid { grid-template-columns: 1fr; text-align: center; }
             .main-layout { grid-template-columns: 1fr; padding: 40px 20px; gap: 40px; } 
-            
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
             .navbar .nav-links { position: fixed; top: 0; right: -100%; width: 80%; height: 100vh; background: var(--bg-card); flex-direction: column; padding: 80px 40px; box-shadow: -10px 0 30px rgba(0,0,0,0.1); transition: 0.4s; align-items: flex-start; z-index: 2000; visibility: hidden; }
             .nav-links.active { right: 0; visibility: visible; }
             .nav-links a { font-size: 1.1rem; width: 100%; border-bottom: 1px solid var(--border-color); padding: 15px 0; color: var(--text-main); }
@@ -302,7 +310,7 @@
             .mobile-close { display: block; color: var(--text-main); }
             .btn-quote { display: flex; width: 100%; text-align: center; margin-top: 20px; justify-content: center; }
             
-            .sidebar-sticky-wrapper { position: static; height: auto; overflow: visible; } /* Mobilde yan menü alta geçer, sticky olmaz */
+            .sidebar-sticky-wrapper { position: static; height: auto; overflow: visible; display: flex; flex-direction: column;}
             
             .left-actions { bottom: 20px; left: 20px; }
             .share-widget-container { top: auto; bottom: 20px; right: 20px; transform: none; flex-direction: column-reverse;}
@@ -318,10 +326,10 @@
         <div class="container top-bar-flex">
             <span>Select Language:</span>
             <div class="language-switcher">
-                <button onclick="setLang('tr')" title="Türkçe"><span class="flag-icon flag-icon-tr"></span></button>
-                <button onclick="setLang('en')" title="English (UK)"><span class="flag-icon flag-icon-gb"></span></button>
-                <button onclick="setLang('ar')" title="Arabic (UAE)"><span class="flag-icon flag-icon-ae"></span></button>
-                <button onclick="setLang('ru')" title="Russian"><span class="flag-icon flag-icon-ru"></span></button>
+                <button onclick="setLang('tr')" title="Türkçe" aria-label="Türkçe Dil Seçeneği"><span class="flag-icon flag-icon-tr"></span></button>
+                <button onclick="setLang('en')" title="English (UK)" aria-label="English Language Option"><span class="flag-icon flag-icon-gb"></span></button>
+                <button onclick="setLang('ar')" title="Arabic (UAE)" aria-label="Arabic Language Option"><span class="flag-icon flag-icon-ae"></span></button>
+                <button onclick="setLang('ru')" title="Russian" aria-label="Russian Language Option"><span class="flag-icon flag-icon-ru"></span></button>
             </div>
             <button class="theme-toggle-btn" id="header-theme-toggle" onclick="toggleDarkMode()" aria-label="Temayı Değiştir">
                 <i class="fas fa-moon" id="theme-icon"></i>
@@ -416,6 +424,11 @@
             </aside>
         </div>
     </main>
+
+    <div class="bottom-actions-right">
+        <a href="https://www.linkedin.com/company/emrahçakmak/" class="action-btn btn-li" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://wa.me/905335429364" class="action-btn btn-wa" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    </div>
 
     <div class="bottom-actions-left left-actions">
         <button id="back-to-top" class="btn-top" onclick="window.scrollTo(0,0)" aria-label="Yukarı Çık"><i class="fas fa-arrow-up"></i></button>
@@ -512,7 +525,7 @@
         </div>
     </footer>
 
-    <div id="cookie-banner-advanced" class="cookie-banner-advanced" style="display:none; position:fixed; bottom:0; left:0; width:100%; background:var(--bg-card); padding:20px; box-shadow:0 -5px 20px rgba(0,0,0,0.1); z-index:10000; text-align:center; border-top: 1px solid var(--border-color); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);">
+    <div id="cookie-banner-advanced" class="cookie-banner-advanced" style="display:none; position:fixed; bottom:0; left:0; width:100%; background:var(--bg-card); padding:20px; box-shadow:0 -5px 20px rgba(0,0,0,0.1); z-index:99998; text-align:center; border-top: 1px solid var(--border-color); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);">
         <p id="cookie-text-adv" style="margin-bottom:15px; color:var(--text-main); font-weight: 500;">Web sitemizde en iyi deneyimi sunabilmek için çerezler kullanılmaktadır.</p>
         <button onclick="acceptAllCookies()" id="btn-accept-all" style="background:var(--accent-gold); color:#0f172a; padding:10px 25px; border:none; cursor:pointer; margin-right:10px; border-radius:50px; font-weight:bold; transition: 0.3s;">Hepsini Kabul Et</button>
         <button onclick="openCookieSettings()" id="btn-cookie-settings" style="background:var(--bg-body); color:var(--text-main); padding:10px 25px; border:1px solid var(--border-color); cursor:pointer; border-radius:50px; font-weight: 500; transition: 0.3s;">Ayarlar</button>
@@ -559,7 +572,7 @@
         const urlParams = new URLSearchParams(window.location.search);
         const articleId = urlParams.get('id');
         let currentLang = urlParams.get('lang') || localStorage.getItem('preferredLang') || 'tr';
-        let lastFocusedElement;
+        let allArticles = [];
 
         const translationData = {
             tr: {
@@ -569,7 +582,9 @@
                 "sidebar-recommended": "İlgili Makaleler",
                 "btn-sidebar-contact": "<i class='fas fa-phone-alt'></i> Ücretsiz Danışmanlık",
                 "read-time-suffix": "dk okuma", "prev-post-text": "Önceki Makale", "next-post-text": "Sonraki Makale",
-                "cookie-text-adv": "Web sitemizde en iyi deneyimi sunabilmek için çerezler kullanılmaktadır."
+                "cookie-text-adv": "Web sitemizde en iyi deneyimi sunabilmek için çerezler kullanılmaktadır.",
+                "footer-desc": "Emrah ÇAKMAK SMMM Bürosu, etik değerlere bağlı, uluslararası standartlarda denetim ve danışmanlık hizmeti sunmaktadır.", "footer-quick": "Hızlı Erişim", "footer-follow": "Bizi Takip Edin", "footer-link-about": "Kurumsal", "footer-link-services": "Hizmetler", "footer-link-contact": "İletişim", "footer-link-kvkk": "KVKK Aydınlatma Metni", "footer-link-privacy": "Gizlilik Politikası", "footer-link-cookies": "Çerez Ayarları", "footer-copyright": "Emrah ÇAKMAK Global Financial Consultancy. Tüm Hakları Saklıdır.", "footer-link-blog": "Blog",
+                "kvkk-title": "KİŞİSEL VERİLERİN KORUNMASI", "privacy-title": "GİZLİLİK POLİTİKASI", "btn-accept-all": "Hepsini Kabul Et", "btn-cookie-settings": "Ayarlar", "btn-save-settings": "Kaydet ve Çık", "cookie-modal-title": "Çerez Tercihleri", "cookie-modal-desc": "Sitemizin temel işlevlerini sağlamak için zorunlu çerezler kullanılmaktadır."
             },
             en: {
                 "nav-home": "Home", "nav-about": "About", "nav-services": "Services", "nav-contact": "Contact", "nav-call-btn": "<i class='fas fa-phone'></i> Call Us", "skip-link-text": "Skip to Main Content", "nav-blog": "Blog",
@@ -577,7 +592,10 @@
                 "sidebar-name": "Emrah ÇAKMAK", "sidebar-job": "CPA | Financial Advisor", "sidebar-desc": "We support your business with international standard financial process management and consultancy services.",
                 "sidebar-recommended": "Related Articles",
                 "btn-sidebar-contact": "<i class='fas fa-phone-alt'></i> Free Consultation",
-                "read-time-suffix": "min read", "prev-post-text": "Previous Article", "next-post-text": "Next Article"
+                "read-time-suffix": "min read", "prev-post-text": "Previous Article", "next-post-text": "Next Article",
+                "cookie-text-adv": "We use cookies to ensure you get the best experience on our website.",
+                "footer-desc": "Emrah ÇAKMAK CPA Office provides audit and consultancy services in international standards.", "footer-quick": "Quick Links", "footer-follow": "Follow Us", "footer-link-about": "About", "footer-link-services": "Services", "footer-link-contact": "Contact", "footer-link-kvkk": "PDPL Text", "footer-link-privacy": "Privacy Policy", "footer-link-cookies": "Cookie Settings", "footer-copyright": "Emrah ÇAKMAK Global Financial Consultancy. All Rights Reserved.", "footer-link-blog": "Blog",
+                "kvkk-title": "PROTECTION OF PERSONAL DATA", "privacy-title": "PRIVACY POLICY", "btn-accept-all": "Accept All", "btn-cookie-settings": "Settings", "btn-save-settings": "Save and Exit", "cookie-modal-title": "Cookie Preferences", "cookie-modal-desc": "Necessary cookies are used to ensure the basic functions of our site."
             }
         };
 
@@ -627,10 +645,11 @@
             updateLogos(isDark);
         }
 
+        // --- İLERLEME ÇUBUĞU (Progress Bar) & SCROLL OLAYLARI ---
         window.addEventListener('scroll', () => {
-            const scrollTop = window.scrollY;
-            const docHeight = document.body.scrollHeight - window.innerHeight;
-            const progress = (scrollTop / docHeight) * 100;
+            const scrollTop = window.scrollY || document.documentElement.scrollTop;
+            const docHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight) - window.innerHeight;
+            const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
             document.getElementById('reading-progress').style.width = progress + '%';
 
             const backToTop = document.getElementById('back-to-top');
@@ -680,6 +699,7 @@
             document.getElementById('a11y-size-indicator').innerText = currentFontSize + "%";
             localStorage.setItem('a11y-fontsize', currentFontSize);
         }
+
         function a11yToggleClass(c, btn, conflicts = []) { 
             const isActive = document.body.classList.toggle(c);
             conflicts.forEach(conflict => {
@@ -690,10 +710,11 @@
             });
             if(document.getElementById(btn)) document.getElementById(btn).classList.toggle('active', isActive); 
         }
+
         function a11yResetAll() {
             currentFontSize = 100; document.body.style.fontSize = "100%"; document.getElementById('a11y-size-indicator').innerText = "100%"; localStorage.setItem('a11y-fontsize', 100);
             const classesToRemove = ['a11y-high-contrast', 'a11y-light-bg', 'a11y-grayscale', 'a11y-dyslexic', 'a11y-text-spaced', 'a11y-highlight-links', 'a11y-hide-images', 'a11y-guide-active', 'a11y-mask-active'];
-            classesToRemove.forEach(c => { document.body.classList.remove(c); localStorage.removeItem(c); });
+            classesToRemove.forEach(c => { document.body.classList.remove(c); });
             document.querySelectorAll('.a11y-btn-item').forEach(btn => btn.classList.remove('active'));
             document.getElementById('theme-icon').className = 'fas fa-moon';
             updateLogos(false);
@@ -747,7 +768,7 @@
             });
         });
 
-        // Zırhlı Veri Çekme
+        // --- ZIRHLI VERİ ÇEKME ---
         async function loadDetail() {
             try {
                 const res = await fetch('articles.json?v=' + Date.now());
@@ -949,7 +970,7 @@
             listContainer.innerHTML = html || "<p style='font-size:0.9rem; color:gray;'>Öneri bulunamadı.</p>";
         }
 
-        // Menü Modallar Cerezler vs
+        // --- BUTON VE PAYLAŞIM FONKSİYONLARI ---
         function toggleShareMenu() { document.getElementById('shareContainer').classList.toggle('open'); document.getElementById('floatingShareBar').classList.toggle('show'); }
         
         function shareArticle(platform) {
@@ -978,7 +999,6 @@
         function closeCookieSettings() { document.getElementById('cookie-settings-modal').style.display = 'none'; }
         function saveCookieSettings() { localStorage.setItem('cookieConsent', 'true'); document.getElementById('cookie-settings-modal').style.display = 'none'; document.getElementById('cookie-banner-advanced').style.display = 'none'; }
 
-        // Modal Dışına Tıklama Kapatması
         window.onclick = function(event) { 
             if (event.target.classList.contains('modal') || event.target.classList.contains('cookie-modal')) {
                 event.target.style.display = "none"; 
