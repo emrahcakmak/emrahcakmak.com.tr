@@ -133,7 +133,6 @@
         .article-meta i { color: var(--accent-gold); margin-right: 5px; }
 
         /* --- ANA İÇERİK DÜZENİ VE STICKY SIDEBAR ÇÖZÜMÜ --- */
-        /* HATA ÇÖZÜMÜ 1: align-items: start kaldırıldı. Böylece sağ ve sol sütun eşit boyda uzar */
         .main-layout { display: grid; grid-template-columns: 2.5fr 1fr; gap: 60px; padding: 60px 20px; }
         
         /* Markdown Stilleri */
@@ -166,8 +165,8 @@
         .sidebar { position: relative; height: 100%; } 
         .sidebar-sticky-wrapper {
             position: sticky;
-            top: 100px; /* Aşağı indikçe menünün ekranda tutunacağı mesafe */
-            max-height: calc(100vh - 120px); /* İçerik ekrana sığmazsa kaydırma çıkar */
+            top: 100px;
+            max-height: calc(100vh - 120px);
             overflow-y: auto; 
             display: flex;
             flex-direction: column;
@@ -215,7 +214,6 @@
         .f-share-btn.cp { background: #0f172a; }
         .f-share-btn:hover { transform: scale(1.1); box-shadow: 0 8px 20px rgba(0,0,0,0.2); color: #fff; }
 
-        /* HATA ÇÖZÜMÜ 2: WhatsApp ve LinkedIn Sağ Alt Butonları Geri Döndü */
         .bottom-actions-right { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 12px; z-index: 9999; }
         .action-btn { width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #ffffff !important; font-size: 24px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: 0.3s; text-decoration: none; border:none; cursor:pointer;}
         .action-btn:hover { transform: scale(1.1); }
@@ -226,7 +224,7 @@
         .bottom-actions-left { position: fixed; bottom: 30px; left: 30px; display: flex; flex-direction: column; gap: 12px; z-index: 9999; }
         
         .btn-a11y { background: #0f172a; color: var(--accent-gold); border: 2px solid var(--accent-gold); width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: 0.3s; }
-        body.a11y-high-contrast .btn-a11y { background: #1e293b; color: #cbd5e1; border-color: #334155; } /* Parlamayı önleyici koyu ton */
+        body.a11y-high-contrast .btn-a11y { background: #1e293b; color: #cbd5e1; border-color: #334155; }
         body.a11y-high-contrast .btn-a11y:hover { background: var(--accent-gold); color: #0f172a; }
         .btn-a11y:hover { transform: scale(1.1); background: var(--accent-gold); color: #0f172a; }
         
@@ -283,7 +281,6 @@
         .social-icons a:hover { background: var(--accent-gold); color: #000; transform: translateY(-5px) rotate(360deg); }
         .bottom-bar { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; }
 
-        /* HATA ÇÖZÜMÜ 3: "Kaydet Çık" Modalı Altta Gözükmesin Diye Z-Index Kilitlendi */
         .cookie-modal, .modal { display: none; position: fixed; z-index: 100000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); backdrop-filter: blur(5px); justify-content: center; align-items: center; overflow: hidden; }
         .cookie-modal-content, .modal-content { background-color: var(--bg-card); padding: 40px; width: 90%; max-width: 700px; border-radius: 12px; position: relative; box-shadow: var(--shadow-lg); max-height: 90vh; overflow-y: auto; color: var(--text-main); border: 1px solid var(--border-color); }
         .modal-close { color: var(--text-gray); float: right; font-size: 28px; font-weight: bold; cursor: pointer; position: absolute; right: 20px; top: 10px; border: none; background: none; transition: 0.3s; z-index: 10; }
@@ -313,7 +310,7 @@
             .sidebar-sticky-wrapper { position: static; height: auto; overflow: visible; display: flex; flex-direction: column;}
             
             .left-actions { bottom: 20px; left: 20px; }
-            .share-widget-container { top: auto; bottom: 20px; right: 20px; transform: none; flex-direction: column-reverse;}
+            .share-widget-container { top: auto; bottom: 160px; right: 20px; transform: none; flex-direction: column-reverse;}
             .floating-share-bar { flex-direction: column-reverse; transform: translateY(20px); margin-bottom: 60px; padding: 15px 8px;}
         }
     </style>
@@ -382,8 +379,8 @@
                 <i class="fas fa-share-alt"></i>
             </button>
             <div class="floating-share-bar" id="floatingShareBar">
-                <a href="https://www.linkedin.com/company/emrahçakmak/" target="_blank" class="f-share-btn li" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://wa.me/905335429364" target="_blank" class="f-share-btn wa" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="javascript:void(0)" onclick="shareArticle('linkedin')" class="f-share-btn li" title="LinkedIn'de Paylaş"><i class="fab fa-linkedin-in"></i></a>
+                <a href="javascript:void(0)" onclick="shareArticle('whatsapp')" class="f-share-btn wa" title="WhatsApp'ta Paylaş"><i class="fa-brands fa-whatsapp"></i></a>
                 <a href="javascript:void(0)" onclick="shareArticle('twitter')" class="f-share-btn tw" title="X (Twitter)'da Paylaş"><i class="fa-brands fa-x-twitter"></i></a>
                 <button onclick="shareArticle('copy')" class="f-share-btn cp" title="Bağlantıyı Kopyala"><i class="fas fa-link"></i></button>
             </div>
@@ -690,6 +687,8 @@
         document.getElementById('a11y-open-btn').addEventListener('click', () => { a11yPanel.classList.add('open'); a11yOverlay.classList.add('active'); });
         document.getElementById('a11y-close-btn').addEventListener('click', () => { a11yPanel.classList.remove('open'); a11yOverlay.classList.remove('active'); });
         a11yOverlay.addEventListener('click', () => { a11yPanel.classList.remove('open'); a11yOverlay.classList.remove('active'); });
+        
+        let currentFontSize = parseInt(localStorage.getItem('a11y-fontsize')) || 100;
         
         function a11yChangeFontSize(step) {
             currentFontSize += step;
