@@ -281,19 +281,33 @@
         .social-icons a:hover { background: var(--accent-gold); color: #000; transform: translateY(-5px) rotate(360deg); }
         .bottom-bar { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; }
 
+        /* --- MODAL VE ÇEREZ KONTROLLERİ --- */
         .cookie-modal, .modal { display: none; position: fixed; z-index: 100000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); backdrop-filter: blur(5px); justify-content: center; align-items: center; overflow: hidden; }
         .cookie-modal-content, .modal-content { background-color: var(--bg-card); padding: 40px; width: 90%; max-width: 700px; border-radius: 12px; position: relative; box-shadow: var(--shadow-lg); max-height: 90vh; overflow-y: auto; color: var(--text-main); border: 1px solid var(--border-color); }
         .modal-close { color: var(--text-gray); float: right; font-size: 28px; font-weight: bold; cursor: pointer; position: absolute; right: 20px; top: 10px; border: none; background: none; transition: 0.3s; z-index: 10; }
         .modal-close:hover { color: #ef4444; transform: rotate(90deg); }
 
         .cookie-banner-advanced { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: var(--bg-card); padding: 20px; box-shadow: 0 -5px 20px rgba(0,0,0,0.1); z-index: 99999; text-align: center; border-top: 1px solid var(--border-color); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
-        #cookie-text-adv { margin-bottom: 15px; color: var(--text-main); font-weight: 500; }
-        #btn-accept-all { background: var(--accent-gold); color: #0f172a; padding: 10px 25px; border: none; cursor: pointer; margin-right: 10px; border-radius: 50px; font-weight: bold; transition: 0.3s; }
+        .cookie-content { max-width: 1200px; margin: auto; display: flex; flex-direction: column; align-items: center; gap: 15px; }
+        #cookie-text-adv { margin:0; color: var(--text-main); font-weight: 500; font-size:0.95rem; }
+        .cookie-buttons { display:flex; gap:10px; justify-content:center;}
+        #btn-accept-all { background: var(--accent-gold); color: #0f172a; padding: 10px 25px; border: none; cursor: pointer; border-radius: 50px; font-weight: bold; transition: 0.3s; }
         #btn-accept-all:hover { transform: scale(1.05); }
         #btn-cookie-settings { background: var(--bg-body); color: var(--text-main); padding: 10px 25px; border: 1px solid var(--border-color); cursor: pointer; border-radius: 50px; font-weight: 500; transition: 0.3s; }
         #btn-cookie-settings:hover { border-color: var(--accent-gold); }
         #btn-save-settings { background: var(--accent-gold); color: #0f172a; width: 100%; margin-top: 20px; padding: 15px; border: none; cursor: pointer; font-weight: bold; border-radius: 8px; transition: 0.3s; font-size: 1rem; }
         #btn-save-settings:hover { background: #eab308; }
+
+        .cookie-option { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid var(--border-color); }
+        .cookie-label h4 { margin: 0 0 5px 0; color: var(--primary-dark); font-family: var(--font-body); font-size:1.05rem;}
+        .cookie-label p { margin: 0; font-size: 0.85rem; color: var(--text-gray); }
+
+        .switch { position: relative; display: inline-block; width: 50px; height: 26px; }
+        .switch input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--border-color); transition: .4s; border-radius: 34px; }
+        .slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 4px; bottom: 4px; background-color: white; transition: .4s; border-radius: 50%; }
+        input:checked + .slider { background-color: var(--whatsapp-green); }
+        input:checked + .slider:before { transform: translateX(24px); }
 
         /* MOBİL UYUM */
         @media (max-width: 992px) {
@@ -502,9 +516,9 @@
                         <li><a href="https://emrahcakmak.com.tr/#hizmetler" id="footer-link-services">Hizmetler</a></li>
                         <li><a href="index.html" id="footer-link-blog">Blog</a></li>
                         <li><a href="https://emrahcakmak.com.tr/#iletisim" id="footer-link-contact">İletişim</a></li>
-                        <li><button onclick="openModal('kvkkModal')" id="footer-link-kvkk" style="background:none; border:none; color:inherit; cursor:pointer; font-family:inherit; font-size:inherit; padding:0; text-align:left;">KVKK Aydınlatma Metni</button></li>
-                        <li><button onclick="openModal('privacyModal')" id="footer-link-privacy" style="background:none; border:none; color:inherit; cursor:pointer; font-family:inherit; font-size:inherit; padding:0; text-align:left; margin-top:10px;">Gizlilik Politikası</button></li>
-                        <li><button onclick="openCookieSettings()" id="footer-link-cookies" style="background:none; border:none; color:inherit; cursor:pointer; font-family:inherit; font-size:inherit; padding:0; text-align:left; margin-top:10px;">Çerez Ayarları</button></li>
+                        <li><button onclick="openModal('kvkkModal', this)" id="footer-link-kvkk" style="background:none; border:none; color:inherit; cursor:pointer; font-family:inherit; font-size:inherit; padding:0; text-align:left;">KVKK Aydınlatma Metni</button></li>
+                        <li><button onclick="openModal('privacyModal', this)" id="footer-link-privacy" style="background:none; border:none; color:inherit; cursor:pointer; font-family:inherit; font-size:inherit; padding:0; text-align:left; margin-top:10px;">Gizlilik Politikası</button></li>
+                        <li><button onclick="openCookieSettings(this)" id="footer-link-cookies" style="background:none; border:none; color:inherit; cursor:pointer; font-family:inherit; font-size:inherit; padding:0; text-align:left; margin-top:10px;">Çerez Ayarları</button></li>
                     </ul>
                 </div>
                 <div class="footer-col" style="text-align: left;">
@@ -522,18 +536,25 @@
         </div>
     </footer>
 
-    <div id="cookie-banner-advanced" class="cookie-banner-advanced" style="display:none; position:fixed; bottom:0; left:0; width:100%; background:var(--bg-card); padding:20px; box-shadow:0 -5px 20px rgba(0,0,0,0.1); z-index:99998; text-align:center; border-top: 1px solid var(--border-color); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);">
-        <p id="cookie-text-adv" style="margin-bottom:15px; color:var(--text-main); font-weight: 500;">Web sitemizde en iyi deneyimi sunabilmek için çerezler kullanılmaktadır.</p>
-        <button onclick="acceptAllCookies()" id="btn-accept-all" style="background:var(--accent-gold); color:#0f172a; padding:10px 25px; border:none; cursor:pointer; margin-right:10px; border-radius:50px; font-weight:bold; transition: 0.3s;">Hepsini Kabul Et</button>
-        <button onclick="openCookieSettings()" id="btn-cookie-settings" style="background:var(--bg-body); color:var(--text-main); padding:10px 25px; border:1px solid var(--border-color); cursor:pointer; border-radius:50px; font-weight: 500; transition: 0.3s;">Ayarlar</button>
+    <div id="cookie-banner-advanced" class="cookie-banner-advanced">
+        <div class="cookie-content">
+            <p id="cookie-text-adv">Web sitemizde en iyi deneyimi sunabilmek için çerezler kullanılmaktadır. "Hepsini Kabul Et" seçeneği ile tüm çerezlere izin verebilir veya "Ayarlar" ile tercihlerinizi yönetebilirsiniz.</p>
+            <div class="cookie-buttons">
+                <button class="btn-cookie-accept" onclick="acceptAllCookies()" id="btn-accept-all">Hepsini Kabul Et</button>
+                <button class="btn-cookie-settings" onclick="openCookieSettings()" id="btn-cookie-settings">Ayarlar</button>
+            </div>
+        </div>
     </div>
     
-    <div id="cookie-settings-modal" class="cookie-modal" role="dialog" aria-modal="true">
+    <div id="cookie-settings-modal" class="cookie-modal" role="dialog" aria-labelledby="cookie-modal-title" aria-modal="true">
         <div class="cookie-modal-content">
             <button class="modal-close" onclick="closeCookieSettings()" aria-label="Kapat">×</button>
             <h3 id="cookie-modal-title">Çerez Tercihleri</h3>
-            <p id="cookie-modal-desc" style="color:var(--text-gray);">Sitemizin temel işlevlerini sağlamak için zorunlu çerezler kullanılmaktadır.</p>
-            <button onclick="saveCookieSettings()" id="btn-save-settings" style="background:var(--accent-gold); color:#0f172a; width:100%; margin-top:20px; padding:15px; border:none; cursor:pointer; font-weight:bold; border-radius: 8px; transition: 0.3s; font-size: 1rem;">Kaydet ve Çık</button>
+            <p id="cookie-modal-desc" style="color:var(--text-gray);">Sitemizin temel işlevlerini sağlamak için zorunlu çerezler kullanılmaktadır. Diğer çerezleri aşağıdan yönetebilirsiniz.</p>
+            <div class="cookie-option"><div class="cookie-label"><h4 id="cookie-nec-title">Zorunlu Çerezler</h4><p id="cookie-nec-desc">Gerekli.</p></div><label class="switch"><input type="checkbox" checked disabled><span class="slider"></span></label></div>
+            <div class="cookie-option"><div class="cookie-label"><h4 id="cookie-ana-title">Analiz Çerezleri</h4><p id="cookie-ana-desc">Ölçümleme.</p></div><label class="switch"><input type="checkbox" id="analytics-cookies"><span class="slider"></span></label></div>
+            <div class="cookie-option"><div class="cookie-label"><h4 id="cookie-mar-title">Pazarlama Çerezleri</h4><p id="cookie-mar-desc">Reklam.</p></div><label class="switch"><input type="checkbox" id="marketing-cookies"><span class="slider"></span></label></div>
+            <button class="btn-cookie-accept" onclick="saveCookieSettings()" id="btn-save-settings" style="width:100%; margin-top:10px;">Kaydet ve Çık</button>
         </div>
     </div>
 
@@ -566,11 +587,13 @@
     </div>
 
     <script>
+        let lastFocusedElement; // Odak yönetimi için
         const urlParams = new URLSearchParams(window.location.search);
         const articleId = urlParams.get('id');
         let currentLang = urlParams.get('lang') || localStorage.getItem('preferredLang') || 'tr';
         let allArticles = [];
 
+        // Yeni Eklenen Çerez Çevirileri
         const translationData = {
             tr: {
                 "nav-home": "Anasayfa", "nav-about": "Kurumsal", "nav-services": "Hizmetler", "nav-contact": "İletişim", "nav-call-btn": "<i class='fas fa-phone'></i> Bizi Arayın", "skip-link-text": "Ana İçeriğe Atla", "nav-blog": "Blog",
@@ -579,9 +602,14 @@
                 "sidebar-recommended": "İlgili Makaleler",
                 "btn-sidebar-contact": "<i class='fas fa-phone-alt'></i> Ücretsiz Danışmanlık",
                 "read-time-suffix": "dk okuma", "prev-post-text": "Önceki Makale", "next-post-text": "Sonraki Makale",
-                "cookie-text-adv": "Web sitemizde en iyi deneyimi sunabilmek için çerezler kullanılmaktadır.",
                 "footer-desc": "Emrah ÇAKMAK SMMM Bürosu, etik değerlere bağlı, uluslararası standartlarda denetim ve danışmanlık hizmeti sunmaktadır.", "footer-quick": "Hızlı Erişim", "footer-follow": "Bizi Takip Edin", "footer-link-about": "Kurumsal", "footer-link-services": "Hizmetler", "footer-link-contact": "İletişim", "footer-link-kvkk": "KVKK Aydınlatma Metni", "footer-link-privacy": "Gizlilik Politikası", "footer-link-cookies": "Çerez Ayarları", "footer-copyright": "Emrah ÇAKMAK Global Financial Consultancy. Tüm Hakları Saklıdır.", "footer-link-blog": "Blog",
-                "kvkk-title": "KİŞİSEL VERİLERİN KORUNMASI", "privacy-title": "GİZLİLİK POLİTİKASI", "btn-accept-all": "Hepsini Kabul Et", "btn-cookie-settings": "Ayarlar", "btn-save-settings": "Kaydet ve Çık", "cookie-modal-title": "Çerez Tercihleri", "cookie-modal-desc": "Sitemizin temel işlevlerini sağlamak için zorunlu çerezler kullanılmaktadır."
+                "kvkk-title": "KİŞİSEL VERİLERİN KORUNMASI", "privacy-title": "GİZLİLİK POLİTİKASI", 
+                "cookie-text-adv": "Web sitemizde en iyi deneyimi sunabilmek için çerezler kullanılmaktadır. 'Hepsini Kabul Et' seçeneği ile tüm çerezlere izin verebilir veya 'Ayarlar' ile tercihlerinizi yönetebilirsiniz.", 
+                "btn-accept-all": "Hepsini Kabul Et", "btn-cookie-settings": "Ayarlar", "btn-save-settings": "Kaydet ve Çık", 
+                "cookie-modal-title": "Çerez Tercihleri", "cookie-modal-desc": "Sitemizin temel işlevlerini sağlamak için zorunlu çerezler kullanılmaktadır. Diğer çerezleri aşağıdan yönetebilirsiniz.", 
+                "cookie-nec-title": "Zorunlu Çerezler", "cookie-nec-desc": "Site güvenliği ve temel fonksiyonlar için gereklidir.", 
+                "cookie-ana-title": "Analiz Çerezleri", "cookie-ana-desc": "Ziyaretçi sayısını ve trafiği ölçmemize yardımcı olur.", 
+                "cookie-mar-title": "Pazarlama Çerezleri", "cookie-mar-desc": "Size özel reklamlar sunmak için kullanılır."
             },
             en: {
                 "nav-home": "Home", "nav-about": "About", "nav-services": "Services", "nav-contact": "Contact", "nav-call-btn": "<i class='fas fa-phone'></i> Call Us", "skip-link-text": "Skip to Main Content", "nav-blog": "Blog",
@@ -590,9 +618,14 @@
                 "sidebar-recommended": "Related Articles",
                 "btn-sidebar-contact": "<i class='fas fa-phone-alt'></i> Free Consultation",
                 "read-time-suffix": "min read", "prev-post-text": "Previous Article", "next-post-text": "Next Article",
-                "cookie-text-adv": "We use cookies to ensure you get the best experience on our website.",
                 "footer-desc": "Emrah ÇAKMAK CPA Office provides audit and consultancy services in international standards.", "footer-quick": "Quick Links", "footer-follow": "Follow Us", "footer-link-about": "About", "footer-link-services": "Services", "footer-link-contact": "Contact", "footer-link-kvkk": "PDPL Text", "footer-link-privacy": "Privacy Policy", "footer-link-cookies": "Cookie Settings", "footer-copyright": "Emrah ÇAKMAK Global Financial Consultancy. All Rights Reserved.", "footer-link-blog": "Blog",
-                "kvkk-title": "PROTECTION OF PERSONAL DATA", "privacy-title": "PRIVACY POLICY", "btn-accept-all": "Accept All", "btn-cookie-settings": "Settings", "btn-save-settings": "Save and Exit", "cookie-modal-title": "Cookie Preferences", "cookie-modal-desc": "Necessary cookies are used to ensure the basic functions of our site."
+                "kvkk-title": "PROTECTION OF PERSONAL DATA", "privacy-title": "PRIVACY POLICY", 
+                "cookie-text-adv": "We use cookies to ensure you get the best experience on our website. You can allow all cookies with 'Accept All' or manage your preferences with 'Settings'.", 
+                "btn-accept-all": "Accept All", "btn-cookie-settings": "Settings", "btn-save-settings": "Save and Exit", 
+                "cookie-modal-title": "Cookie Preferences", "cookie-modal-desc": "Necessary cookies are used to ensure the basic functions of our site. You can manage other cookies below.", 
+                "cookie-nec-title": "Necessary", "cookie-nec-desc": "Required for security.", 
+                "cookie-ana-title": "Analytics", "cookie-ana-desc": "Helps us measure traffic.", 
+                "cookie-mar-title": "Marketing", "cookie-mar-desc": "Used to provide ads."
             }
         };
 
@@ -997,17 +1030,59 @@
         function toggleMenu() { document.getElementById('navLinks').classList.toggle('active'); }
         function closeMenu() { document.getElementById('navLinks').classList.remove('active'); }
         
-        function openModal(id) { document.getElementById(id).style.display = "flex"; }
-        function closeModal(id) { document.getElementById(id).style.display = "none"; }
+        function openModal(id, triggerElement) { 
+            if (triggerElement) lastFocusedElement = triggerElement;
+            document.getElementById(id).style.display = "flex"; 
+        }
+        function closeModal(id) { 
+            document.getElementById(id).style.display = "none"; 
+            if (lastFocusedElement) lastFocusedElement.focus();
+        }
 
-        function acceptAllCookies() { localStorage.setItem('cookieConsent', 'true'); document.getElementById('cookie-banner-advanced').style.display = 'none'; }
-        function openCookieSettings() { document.getElementById('cookie-settings-modal').style.display = 'flex'; }
-        function closeCookieSettings() { document.getElementById('cookie-settings-modal').style.display = 'none'; }
-        function saveCookieSettings() { localStorage.setItem('cookieConsent', 'true'); document.getElementById('cookie-settings-modal').style.display = 'none'; document.getElementById('cookie-banner-advanced').style.display = 'none'; }
+        // --- ÇEREZ FONKSİYONLARI (GÜNCELLENDİ) ---
+        function checkCookies() {
+            if (!localStorage.getItem('cookieConsent')) {
+                document.getElementById('cookie-banner-advanced').style.display = 'block';
+            } else {
+                document.getElementById('cookie-banner-advanced').style.display = 'none';
+            }
+        }
+
+        function openCookieSettings(triggerElement) {
+            if (triggerElement) lastFocusedElement = triggerElement;
+            document.getElementById('cookie-settings-modal').style.display = 'flex';
+            const preferences = JSON.parse(localStorage.getItem('cookiePreferences')) || { analytics: false, marketing: false };
+            document.getElementById('analytics-cookies').checked = preferences.analytics;
+            document.getElementById('marketing-cookies').checked = preferences.marketing;
+        }
+
+        function closeCookieSettings() {
+            document.getElementById('cookie-settings-modal').style.display = 'none';
+            if (lastFocusedElement) lastFocusedElement.focus();
+        }
+
+        function acceptAllCookies() {
+            const preferences = { necessary: true, analytics: true, marketing: true };
+            localStorage.setItem('cookieConsent', 'true');
+            localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
+            document.getElementById('cookie-banner-advanced').style.display = 'none';
+            document.getElementById('cookie-settings-modal').style.display = 'none';
+        }
+
+        function saveCookieSettings() {
+            const analytics = document.getElementById('analytics-cookies').checked;
+            const marketing = document.getElementById('marketing-cookies').checked;
+            const preferences = { necessary: true, analytics: analytics, marketing: marketing };
+            localStorage.setItem('cookieConsent', 'true');
+            localStorage.setItem('cookiePreferences', JSON.stringify(preferences));
+            document.getElementById('cookie-banner-advanced').style.display = 'none';
+            document.getElementById('cookie-settings-modal').style.display = 'none';
+        }
 
         window.onclick = function(event) { 
             if (event.target.classList.contains('modal') || event.target.classList.contains('cookie-modal')) {
                 event.target.style.display = "none"; 
+                if (lastFocusedElement) lastFocusedElement.focus();
             }
         };
 
@@ -1016,10 +1091,7 @@
             applyDarkModePrefs();
             setLang(currentLang); 
             loadDetail();
-
-            if (!localStorage.getItem('cookieConsent')) {
-                document.getElementById('cookie-banner-advanced').style.display = 'block';
-            }
+            checkCookies(); // Yeni gelişmiş çerez kontrolünü sayfa açıldığında tetikler
         };
 
         document.addEventListener('keydown', function(event){
