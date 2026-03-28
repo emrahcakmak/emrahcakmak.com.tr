@@ -976,9 +976,16 @@
             const currentUrl = encodeURIComponent(window.location.href);
             const rawTitle = document.getElementById('article-title').innerText;
             const articleTitle = encodeURIComponent(rawTitle + " | Okumak için tıkla: ");
-            if (platform === 'twitter') { window.open(`https://twitter.com/intent/tweet?text=${articleTitle}&url=${currentUrl}`, '_blank'); }
-            else if (platform === 'linkedin') { window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${currentUrl}`, '_blank'); } 
-            else if (platform === 'whatsapp') { window.open(`https://api.whatsapp.com/send?text=${articleTitle}${currentUrl}`, '_blank'); } 
+            
+            if (platform === 'twitter') { 
+                window.open(`https://twitter.com/intent/tweet?text=${articleTitle}&url=${currentUrl}`, '_blank'); 
+            }
+            else if (platform === 'linkedin') { 
+                window.open(`https://www.linkedin.com/shareArticle?mini=true&url=${currentUrl}&title=${articleTitle}`, '_blank'); 
+            } 
+            else if (platform === 'whatsapp') { 
+                window.open(`https://api.whatsapp.com/send?text=${articleTitle}%20${currentUrl}`, '_blank'); 
+            } 
             else if (platform === 'copy') {
                 navigator.clipboard.writeText(window.location.href).then(() => {
                     const alertMsg = currentLang === 'en' ? 'Link copied to clipboard!' : currentLang === 'ar' ? 'تم نسخ الرابط!' : currentLang === 'ru' ? 'Ссылка скопирована!' : 'Makale bağlantısı kopyalandı!';
